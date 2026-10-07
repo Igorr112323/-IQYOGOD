@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="430" viewBox="0 0 860 430" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="860" height="430" fill="#ffffff"/>
+  <text x="430" y="24" text-anchor="middle" font-size="15" font-weight="bold">КУБАНЬ-УРОЖАЙ: площадка хаба, ст-ца Павловская (полный цикл)</text>
+  <rect x="40" y="50" width="780" height="330" rx="12" fill="#f9fbe7" stroke="#827717"/>
+  <!-- весовая -->
+  <rect x="70" y="80" width="130" height="70" rx="6" fill="#cfd8dc" stroke="#37474f"/>
+  <text x="135" y="110" text-anchor="middle">весовая 80 т</text>
+  <text x="135" y="128" text-anchor="middle" fill="#555">онлайн-чек</text>
+  <!-- лаборатория -->
+  <rect x="70" y="180" width="130" height="70" rx="6" fill="#e1bee7" stroke="#6a1b9a"/>
+  <text x="135" y="210" text-anchor="middle">лаборатория</text>
+  <text x="135" y="228" text-anchor="middle" fill="#555">ИК-анализатор</text>
+  <!-- сушилка -->
+  <rect x="280" y="80" width="120" height="170" rx="6" fill="#ffe0b2" stroke="#e65100"/>
+  <text x="340" y="160" text-anchor="middle">сушилка</text>
+  <text x="340" y="178" text-anchor="middle">200 т/сут</text>
+  <!-- склады -->
+  <g fill="#dcedc8" stroke="#33691e">
+    <rect x="480" y="70" width="140" height="60" rx="6"/>
+    <rect x="480" y="145" width="140" height="60" rx="6"/>
+    <rect x="480" y="220" width="140" height="60" rx="6"/>
+  </g>
+  <text x="550" y="100" text-anchor="middle">хранение 12 тыс. т</text>
+  <text x="550" y="175" text-anchor="middle">лоты по качеству</text>
+  <text x="550" y="250" text-anchor="middle">резерв пика</text>
+  <!-- отгрузка -->
+  <rect x="680" y="140" width="110" height="80" rx="6" fill="#b3e5fc" stroke="#01579b"/>
+  <text x="735" y="172" text-anchor="middle">отгрузка</text>
+  <text x="735" y="190" text-anchor="middle" fill="#555">авто/жд</text>
+  <!-- стрелки -->
+  <g stroke="#37474f" stroke-width="2" fill="none" marker-end="url(#arr)">
+    <path d="M200 115 H280"/><path d="M200 215 L280 180"/>
+    <path d="M400 165 H480"/><path d="M620 180 H680"/>
+  </g>
+  <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#37474f"/></marker></defs>
+  <text x="430" y="320" text-anchor="middle" fill="#555">CAPEX 240 млн руб.: 30 % средства членов, 50 % льготный кредит МСХ, 20 % гранты. Окупаемость 4,5 года.</text>
+  <text x="430" y="344" text-anchor="middle" fill="#2e7d32">Эффект хозяйств района: +1 500…2 700 руб./т = 45–81 млн руб. за сезон без роста посевов.</text>
+</svg>

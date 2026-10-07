@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="450" viewBox="0 0 820 450" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="820" height="450" fill="#ffffff"/>
+  <text x="410" y="24" text-anchor="middle" font-size="15" font-weight="bold">ДВОР БЕЗ СТУПЕНЕЙ: карта барьеров пилотного двора (ул. имени Захарова)</text>
+  <rect x="40" y="50" width="740" height="360" rx="10" fill="#f1f8e9" stroke="#9e9e9e"/>
+  <!-- дома -->
+  <g fill="#cfd8dc" stroke="#37474f">
+    <rect x="80" y="80" width="200" height="70"/>
+    <rect x="420" y="80" width="200" height="70"/>
+  </g>
+  <text x="180" y="120" text-anchor="middle">дом 23</text>
+  <text x="520" y="120" text-anchor="middle">дом 25</text>
+  <!-- подъезды -->
+  <g fill="#90a4ae">
+    <rect x="120" y="150" width="24" height="16"/><rect x="210" y="150" width="24" height="16"/>
+    <rect x="460" y="150" width="24" height="16"/><rect x="550" y="150" width="24" height="16"/>
+  </g>
+  <!-- тропы -->
+  <g stroke="#bdbdbd" stroke-width="10" fill="none">
+    <path d="M132 166 L132 300 L400 300 L400 400"/>
+    <path d="M472 166 L472 250 L660 250 L660 400"/>
+  </g>
+  <!-- барьеры -->
+  <g>
+    <circle cx="132" cy="180" r="9" fill="#c62828"/>
+    <text x="150" y="184" fill="#c62828">ступени без пандуса</text>
+    <circle cx="132" cy="260" r="9" fill="#ef6c00"/>
+    <text x="150" y="264" fill="#ef6c00">бордюр 14 см</text>
+    <circle cx="400" cy="350" r="9" fill="#ef6c00"/>
+    <text x="418" y="354" fill="#ef6c00">тёмный проход (0,8 лк)</text>
+    <circle cx="660" cy="300" r="9" fill="#f9a825"/>
+    <text x="560" y="324" fill="#b07d00">яма на тропе 0,3 м²</text>
+    <circle cx="472" cy="210" r="9" fill="#f9a825"/>
+    <text x="490" y="214" fill="#b07d00">лавка без спинки</text>
+  </g>
+  <!-- быстрые победы -->
+  <g fill="#2e7d32">
+    <polygon points="120,196 144,196 132,214"/>
+    <rect x="390" y="370" width="20" height="20" fill="#fff176" stroke="#f9a825"/>
+  </g>
+  <text x="170" y="395" fill="#2e7d32">СДЕЛАНО: съезд + поручень · освещение прохода</text>
+  <!-- легенда -->
+  <rect x="560" y="70" width="210" height="80" rx="8" fill="#ffffff" stroke="#616161"/>
+  <text x="575" y="92">индекс двора: 34/100</text>
+  <text x="575" y="112">барьеров: 19 (аудит 02.2026)</text>
+  <text x="575" y="132">быстрых мер: 2 из 5 уже сделаны</text>
+  <text x="410" y="435" text-anchor="middle" fill="#555">«Теперь я выхожу каждый день» — житель дома 23, после поручня и света.</text>
+</svg>

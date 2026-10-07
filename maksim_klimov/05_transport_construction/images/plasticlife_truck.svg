@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="420" viewBox="0 0 880 420" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="880" height="420" fill="#ffffff"/>
+  <text x="440" y="24" text-anchor="middle" font-size="15" font-weight="bold">ВТОРАЯ ЖИЗНЬ ПЛАСТИКА: мобильный комплекс в прицепе-фургоне (план)</text>
+  <!-- прицеп -->
+  <rect x="60" y="60" width="640" height="260" rx="10" fill="#f5f5f5" stroke="#37474f" stroke-width="2"/>
+  <circle cx="120" cy="340" r="22" fill="#37474f"/><circle cx="640" cy="340" r="22" fill="#37474f"/>
+  <rect x="700" y="150" width="80" height="80" fill="#90a4ae"/>
+  <text x="740" y="195" text-anchor="middle">дышло</text>
+  <!-- зоны -->
+  <rect x="80" y="80" width="150" height="100" rx="6" fill="#e8f5e9" stroke="#2e7d32"/>
+  <text x="155" y="115" text-anchor="middle">зона приёмки</text>
+  <text x="155" y="133" text-anchor="middle">контроль, весы</text>
+  <rect x="250" y="80" width="130" height="100" rx="6" fill="#fff3e0" stroke="#e65100"/>
+  <text x="315" y="115" text-anchor="middle">дробилка</text>
+  <text x="315" y="133" text-anchor="middle">15 кВт, 8-15 мм</text>
+  <rect x="400" y="80" width="140" height="100" rx="6" fill="#ffebee" stroke="#b71c1c"/>
+  <text x="470" y="110" text-anchor="middle">смеситель</text>
+  <text x="470" y="128" text-anchor="middle">60/40, 200-220 °С</text>
+  <text x="470" y="146" text-anchor="middle">вытяжка + уголь</text>
+  <rect x="560" y="80" width="120" height="100" rx="6" fill="#e3f2fd" stroke="#1565c0"/>
+  <text x="620" y="115" text-anchor="middle">термопресс</text>
+  <text x="620" y="133" text-anchor="middle">40 т, формы</text>
+  <rect x="80" y="200" width="280" height="100" rx="6" fill="#ede7f6" stroke="#5e35b1"/>
+  <text x="220" y="235" text-anchor="middle">склад сырья 2 т + песок кварцевый</text>
+  <text x="220" y="253" text-anchor="middle">вход: плёнка + жёсткий микс, до 15% плёнки</text>
+  <rect x="380" y="200" width="300" height="100" rx="6" fill="#e0f2f1" stroke="#00695c"/>
+  <text x="530" y="235" text-anchor="middle">готовая продукция: плитка, скамейки, урны</text>
+  <text x="530" y="253" text-anchor="middle">28 МПа сжатие · F75 · водопоглощение 0,8%</text>
+  <text x="440" y="395" text-anchor="middle" fill="#555">Питание 380 В от площадки или генератор; переезд между площадками — 1 день.</text>
+</svg>

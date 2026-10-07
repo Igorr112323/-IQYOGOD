@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="430" viewBox="0 0 840 430" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="840" height="430" fill="#ffffff"/>
+  <text x="420" y="24" text-anchor="middle" font-size="15" font-weight="bold">ЧИСТЫЙ АЗОВ: схема поиска (разрез акватории)</text>
+  <!-- поверхность -->
+  <line x1="30" y1="90" x2="810" y2="90" stroke="#29b6f6" stroke-width="4"/>
+  <!-- катер -->
+  <polygon points="120,60 220,60 240,86 100,86" fill="#efebe9" stroke="#5d4037"/>
+  <text x="170" y="50" text-anchor="middle">катер-буксировщик</text>
+  <!-- трос и модуль -->
+  <line x1="230" y1="80" x2="300" y2="170" stroke="#5d4037" stroke-width="2"/>
+  <ellipse cx="310" cy="180" rx="34" ry="12" fill="#cfd8dc" stroke="#37474f" stroke-width="2"/>
+  <text x="310" y="210" text-anchor="middle">модуль локатора 450/800 кГц, 380 тыс. руб.</text>
+  <!-- лучи -->
+  <polygon points="310,186 150,330 470,330" fill="#81d4fa" opacity="0.45"/>
+  <!-- дно -->
+  <path d="M30 330 q 130 -18 260 0 q 130 18 260 0 q 130 -14 260 0" fill="none" stroke="#8d6e63" stroke-width="4"/>
+  <text x="700" y="320">глубина 2–15 м</text>
+  <!-- сеть на дне -->
+  <g stroke="#37474f" stroke-width="1.4">
+    <path d="M540 330 l 60 -14 l 40 8 l 30 -6" fill="none"/>
+    <path d="M550 336 l 55 -12 l 45 6" fill="none"/>
+  </g>
+  <text x="600" y="360" text-anchor="middle">цель № 7: сеть на грунте (подтверждена)</text>
+  <!-- дрон -->
+  <g transform="translate(640,40)">
+    <rect x="0" y="0" width="46" height="12" rx="4" fill="#37474f"/>
+    <circle cx="-6" cy="6" r="6" fill="#90a4ae"/><circle cx="52" cy="6" r="6" fill="#90a4ae"/>
+  </g>
+  <text x="663" y="80" text-anchor="middle">дрон: мелководье до 2 м</text>
+  <line x1="663" y1="60" x2="663" y2="330" stroke="#90a4ae" stroke-dasharray="4 4"/>
+  <text x="420" y="405" text-anchor="middle" fill="#555">Итог сезона: 26+18+21 км галсов, 12 км² аэросъёмки, 3 цели подтверждены, 340 кг сетей поднято.</text>
+</svg>

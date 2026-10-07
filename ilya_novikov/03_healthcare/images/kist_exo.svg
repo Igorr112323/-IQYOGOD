@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="430" viewBox="0 0 820 430" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="820" height="430" fill="#ffffff"/>
+  <text x="410" y="24" text-anchor="middle" font-size="15" font-weight="bold">КИСТЬ-М: экзоскелет К-01 (вид сверху, левая кисть)</text>
+  <!-- предплечье -->
+  <rect x="60" y="170" width="220" height="80" rx="16" fill="#ffe0b2" stroke="#e65100"/>
+  <text x="170" y="215" text-anchor="middle">манжета предплечья</text>
+  <!-- ладонь -->
+  <rect x="300" y="160" width="140" height="100" rx="18" fill="#ffe0b2" stroke="#e65100"/>
+  <!-- пальцы с тягами -->
+  <g stroke="#0d47a1" stroke-width="3" fill="none">
+    <path d="M440 175 q 60 -8 110 6"/>
+    <path d="M440 195 q 65 -2 120 8"/>
+    <path d="M440 215 q 65 4 118 12"/>
+    <path d="M440 235 q 60 12 108 18"/>
+  </g>
+  <g fill="#e3f2fd" stroke="#0d47a1">
+    <circle cx="555" cy="180" r="7"/><circle cx="565" cy="202" r="7"/>
+    <circle cx="562" cy="226" r="7"/><circle cx="552" cy="252" r="7"/>
+  </g>
+  <text x="640" y="210">тяги сухожильные к напальчникам</text>
+  <!-- большой палец -->
+  <path d="M320 250 q 10 60 70 66" stroke="#0d47a1" stroke-width="3" fill="none"/>
+  <circle cx="395" cy="318" r="7" fill="#e3f2fd" stroke="#0d47a1"/>
+  <text x="300" y="340">привод противопоставления большого пальца</text>
+  <!-- барабан и датчики -->
+  <circle cx="300" cy="140" r="20" fill="#c8e6c9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="300" y="144" text-anchor="middle">барабан</text>
+  <text x="300" y="100" text-anchor="middle">привод 1,2 Н·м + тензодатчик 10 кг</text>
+  <rect x="330" y="120" width="60" height="24" rx="6" fill="#fff59d" stroke="#f57f17"/>
+  <text x="360" y="110" text-anchor="middle">ИМС</text>
+  <!-- характеристики -->
+  <rect x="520" y="290" width="260" height="100" rx="8" fill="#f5f5f5" stroke="#616161"/>
+  <text x="650" y="312" text-anchor="middle">масса 780 г · аккумулятор 6 ч</text>
+  <text x="650" y="330" text-anchor="middle">ПФ 0–85° · ПМФ 0–95° · 0–60°/с</text>
+  <text x="650" y="348" text-anchor="middle">предохранитель 4,1 ± 0,2 Н·м</text>
+  <text x="650" y="366" text-anchor="middle">себестоимость 89 тыс. руб.</text>
+  <text x="410" y="420" text-anchor="middle" fill="#555">Каркас — ПЭТГ/нейлон, 3D-печать; сменные моющиеся перчатки-вкладыши.</text>
+</svg>

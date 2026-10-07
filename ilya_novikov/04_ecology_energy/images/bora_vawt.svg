@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="450" viewBox="0 0 820 450" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="820" height="450" fill="#ffffff"/>
+  <text x="410" y="24" text-anchor="middle" font-size="15" font-weight="bold">БОРА-5: установка Б-5 (габаритный чертёж)</text>
+  <!-- ротор -->
+  <ellipse cx="260" cy="170" rx="130" ry="95" fill="none" stroke="#0d47a1" stroke-width="3"/>
+  <ellipse cx="260" cy="170" rx="70" ry="50" fill="#e3f2fd" stroke="#0d47a1" stroke-dasharray="4 3"/>
+  <g stroke="#0d47a1" stroke-width="3" fill="none">
+    <path d="M260 75 q 80 45 80 95 q 0 50 -80 95"/>
+    <path d="M260 75 q -80 45 -80 95 q 0 50 80 95"/>
+  </g>
+  <text x="260" y="172" text-anchor="middle">6 лопаток Дарье + 4 ковша Савониуса</text>
+  <!-- ось и подвес -->
+  <line x1="260" y1="75" x2="260" y2="330" stroke="#37474f" stroke-width="5"/>
+  <rect x="235" y="330" width="50" height="16" rx="4" fill="#c8e6c9" stroke="#2e7d32"/>
+  <text x="330" y="342">нижнее магнитное кольцо, 240 кг</text>
+  <rect x="235" y="60" width="50" height="14" rx="4" fill="#c8e6c9" stroke="#2e7d32"/>
+  <text x="330" y="70">верхнее центрирующее кольцо, зазор 2 мм</text>
+  <!-- генератор -->
+  <rect x="225" y="290" width="70" height="34" rx="6" fill="#ffe0b2" stroke="#e65100"/>
+  <text x="330" y="305">генератор аксиальный 24 полюса</text>
+  <!-- мачта -->
+  <line x1="260" y1="330" x2="200" y2="420" stroke="#37474f" stroke-width="4"/>
+  <line x1="260" y1="330" x2="320" y2="420" stroke="#37474f" stroke-width="4"/>
+  <rect x="180" y="418" width="160" height="12" fill="#90a4ae"/>
+  <text x="260" y="445" text-anchor="middle">мачта раскосная 6 м · фундамент 2×2 м · шум 48 дБА в 10 м</text>
+  <!-- контроллер и балласт -->
+  <rect x="520" y="120" width="240" height="120" rx="10" fill="#eceff1" stroke="#37474f"/>
+  <text x="640" y="145" text-anchor="middle">контроллер: трекер мощности до 15 м/с</text>
+  <text x="640" y="165" text-anchor="middle">оборотно-штурмовой сброс > 25 м/с</text>
+  <rect x="520" y="260" width="240" height="60" rx="10" fill="#ffcdd2" stroke="#b71c1c"/>
+  <text x="640" y="285" text-anchor="middle">ТЭН-балласт 5 кВт -> ГВС объекта</text>
+  <text x="640" y="303" text-anchor="middle">энергия боры греет воду</text>
+  <line x1="295" y1="300" x2="520" y2="180" stroke="#37474f" stroke-dasharray="5 3"/>
+  <line x1="760" y1="200" x2="790" y2="200" stroke="none"/>
+  <text x="640" y="355" text-anchor="middle" fill="#555">Зимняя серия 01.2026: 212 кВт·ч за 6 суток боры, порывы до 24 м/с, отказов 0.</text>
+</svg>

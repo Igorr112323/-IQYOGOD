@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="430" viewBox="0 0 860 430" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="860" height="430" fill="#ffffff"/>
+  <text x="430" y="24" text-anchor="middle" font-size="15" font-weight="bold">МУНИЦИПАЛЬНЫЙ ВИДЕОКОНТРОЛЬ: архитектура платформы</text>
+  <!-- источники -->
+  <g>
+    <rect x="40" y="70" width="180" height="50" rx="8" fill="#e3f2fd" stroke="#1565c0"/>
+    <text x="130" y="92" text-anchor="middle">городские камеры</text>
+    <text x="130" y="108" text-anchor="middle">18 в пилоте, существующие</text>
+    <rect x="40" y="140" width="180" height="50" rx="8" fill="#e8f5e9" stroke="#2e7d32"/>
+    <text x="130" y="162" text-anchor="middle">реестр контрактов</text>
+    <text x="130" y="178" text-anchor="middle">расписания, графики работ</text>
+    <rect x="40" y="210" width="180" height="50" rx="8" fill="#fff3e0" stroke="#e65100"/>
+    <text x="130" y="232" text-anchor="middle">ГЛОНАСС перевозчиков</text>
+    <text x="130" y="248" text-anchor="middle">при наличии у исполнителя</text>
+  </g>
+  <!-- ядро -->
+  <rect x="300" y="100" width="240" height="140" rx="10" fill="#eceff1" stroke="#37474f" stroke-width="2"/>
+  <text x="420" y="130" text-anchor="middle" font-weight="bold">ядро платформы</text>
+  <text x="420" y="152" text-anchor="middle">распознавание номеров/бортовых</text>
+  <text x="420" y="170" text-anchor="middle">контрольные точки и интервалы</text>
+  <text x="420" y="188" text-anchor="middle">двукратное подтверждение события</text>
+  <text x="420" y="206" text-anchor="middle">журнал нарушений с видео</text>
+  <line x1="220" y1="95" x2="300" y2="150" stroke="#1565c0" stroke-width="2"/>
+  <line x1="220" y1="165" x2="300" y2="170" stroke="#2e7d32" stroke-width="2"/>
+  <line x1="220" y1="235" x2="300" y2="190" stroke="#e65100" stroke-width="2"/>
+  <!-- выходы -->
+  <rect x="620" y="60" width="200" height="60" rx="8" fill="#fce4ec" stroke="#ad1457"/>
+  <text x="720" y="84" text-anchor="middle">претензионный журнал</text>
+  <text x="720" y="102" text-anchor="middle">неустойки по 44-ФЗ: 840 тыс. руб.</text>
+  <rect x="620" y="140" width="200" height="60" rx="8" fill="#e0f2f1" stroke="#00695c"/>
+  <text x="720" y="164" text-anchor="middle">дашборд заказчика</text>
+  <text x="720" y="182" text-anchor="middle">ежедневные сводки, приёмка</text>
+  <rect x="620" y="220" width="200" height="60" rx="8" fill="#f3e5f5" stroke="#6a1b9a"/>
+  <text x="720" y="244" text-anchor="middle">открытые показатели</text>
+  <text x="720" y="262" text-anchor="middle">дисциплина маршрутов: 74→89 %</text>
+  <line x1="540" y1="140" x2="620" y2="90" stroke="#37474f" stroke-width="2"/>
+  <line x1="540" y1="170" x2="620" y2="170" stroke="#37474f" stroke-width="2"/>
+  <line x1="540" y1="200" x2="620" y2="250" stroke="#37474f" stroke-width="2"/>
+  <text x="430" y="330" text-anchor="middle" fill="#555">Данные в контуре муниципалитета; персональные данные пассажиров не собираются.</text>
+  <text x="430" y="352" text-anchor="middle" fill="#555">Лицензия 1,2 млн руб./год + 15 тыс. руб./камера; окупаемость для бюджета &lt; 1 года.</text>
+</svg>

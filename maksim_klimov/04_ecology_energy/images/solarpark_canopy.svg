@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="430" viewBox="0 0 860 430" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="860" height="430" fill="#ffffff"/>
+  <text x="430" y="24" text-anchor="middle" font-size="15" font-weight="bold">СОЛНЦЕПАРК: модуль на 4 паркоместа (вид сбоку и сверху)</text>
+  <!-- бок -->
+  <polygon points="120,150 420,110 420,140 120,180" fill="#bbdefb" stroke="#0d47a1" stroke-width="2"/>
+  <rect x="140" y="170" width="14" height="120" fill="#78909c"/>
+  <rect x="390" y="130" width="14" height="160" fill="#78909c"/>
+  <text x="270" y="100" text-anchor="middle">фотоэлектрическая кровля 22 кВт (двусторонние панели)</text>
+  <rect x="120" y="292" width="300" height="10" fill="#9e9e9e"/>
+  <circle cx="200" cy="280" r="16" fill="#37474f"/>
+  <circle cx="340" cy="280" r="16" fill="#37474f"/>
+  <text x="270" y="330" text-anchor="middle">винтовые сваи, без капитального фундамента · монтаж 3 дня</text>
+  <rect x="430" y="150" width="70" height="90" rx="6" fill="#c8e6c9" stroke="#2e7d32"/>
+  <text x="465" y="200" text-anchor="middle">шкаф: инвертор 25 кВт + LiFePO4 40 кВт·ч</text>
+  <!-- сверху -->
+  <rect x="560" y="70" width="260" height="240" fill="#e3f2fd" stroke="#0d47a1"/>
+  <g stroke="#0d47a1">
+    <line x1="560" y1="130" x2="820" y2="130"/>
+    <line x1="560" y1="190" x2="820" y2="190"/>
+    <line x1="560" y1="250" x2="820" y2="250"/>
+  </g>
+  <text x="690" y="60" text-anchor="middle">вид сверху: 4 места + 2 зарядки АС 22 кВт</text>
+  <circle cx="600" cy="160" r="8" fill="#ef6c00"/>
+  <circle cx="780" cy="160" r="8" fill="#ef6c00"/>
+  <text x="690" y="330" text-anchor="middle">расчёт на ветровую нагрузку боры ×1,5</text>
+  <text x="430" y="400" text-anchor="middle" fill="#555">Пилот 11 кВт (2 места): 5,4 МВт·ч за сезон, самопотребление 92 %, срез пика 38 кВт.</text>
+</svg>

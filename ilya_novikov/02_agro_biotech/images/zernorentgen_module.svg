@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="430" viewBox="0 0 860 430" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="860" height="430" fill="#ffffff"/>
+  <text x="430" y="24" text-anchor="middle" font-size="15" font-weight="bold">ЗЕРНО-РЕНТГЕН: модуль приёмки (продольный разрез)</text>
+  <!-- нория -->
+  <rect x="40" y="90" width="60" height="180" fill="#cfd8dc" stroke="#37474f"/>
+  <text x="70" y="80" text-anchor="middle">нория элеватора</text>
+  <!-- вибролоток -->
+  <polygon points="100,150 420,190 420,205 100,165" fill="#fff9c4" stroke="#f9a825"/>
+  <text x="260" y="140" text-anchor="middle">вибролоток 300 мм, однослойный поток 0,6 м/с</text>
+  <!-- рентген-бок -->
+  <rect x="420" y="120" width="180" height="130" rx="8" fill="#efebe9" stroke="#4e342e" stroke-width="3"/>
+  <text x="510" y="150" text-anchor="middle">экранированный бокс</text>
+  <rect x="440" y="160" width="140" height="12" fill="#ff8a65"/>
+  <text x="510" y="156" text-anchor="middle">трубка 50 кВ</text>
+  <rect x="440" y="215" width="140" height="12" fill="#90caf9"/>
+  <text x="510" y="240" text-anchor="middle">линейный детектор + ИК 900–1700 нм</text>
+  <!-- эжектор -->
+  <rect x="620" y="180" width="90" height="40" rx="6" fill="#c8e6c9" stroke="#2e7d32"/>
+  <text x="665" y="205" text-anchor="middle">эжектор 64</text>
+  <polygon points="710,180 780,150 780,170 715,196" fill="#ef9a9a" stroke="#b71c1c"/>
+  <text x="780" y="140" text-anchor="middle">жолоб брака</text>
+  <!-- товар -->
+  <line x1="710" y1="215" x2="800" y2="260" stroke="#2e7d32" stroke-width="4"/>
+  <text x="790" y="285" text-anchor="middle">товарная фракция</text>
+  <!-- электроника -->
+  <rect x="420" y="300" width="290" height="60" rx="8" fill="#e3f2fd" stroke="#1565c0"/>
+  <text x="565" y="325" text-anchor="middle">контроллер: синхронизация энкодером, бустинг 0,9 мс/зерно</text>
+  <text x="565" y="343" text-anchor="middle">журнал каждой зерновки -> АСУ ТП</text>
+  <text x="430" y="405" text-anchor="middle" fill="#555">Стенд 0,5 т/ч; серия — две ленты, 20 т/ч. Доза на зерновку < 0,01 мГр.</text>
+</svg>
