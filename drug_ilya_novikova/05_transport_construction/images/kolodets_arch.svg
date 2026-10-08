@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="500" viewBox="0 0 860 500" font-family="Arial" font-size="13">
+  <rect width="860" height="500" fill="#ffffff"/>
+  <text x="430" y="26" text-anchor="middle" font-size="16" font-weight="bold">КОЛОДЕЦ-ТРАССА: съёмочный комплект и классификация аномалий</text>
+  <!-- дорога -->
+  <rect x="60" y="300" width="740" height="70" fill="#d8dde3" stroke="#33475b" stroke-width="1.5"/>
+  <line x1="60" y1="335" x2="800" y2="335" stroke="#ffffff" stroke-width="3" stroke-dasharray="20 14"/>
+  <!-- внедорожник -->
+  <rect x="150" y="240" width="130" height="52" rx="10" fill="#c9d6e2" stroke="#33475b" stroke-width="2"/>
+  <circle cx="180" cy="296" r="14" fill="#33475b"/><circle cx="250" cy="296" r="14" fill="#33475b"/>
+  <line x1="280" y1="266" x2="360" y2="300" stroke="#33475b" stroke-width="3"/>
+  <circle cx="365" cy="305" r="10" fill="#e05c5c"/>
+  <text x="365" y="330" text-anchor="middle" font-size="11">магнитометр на штанге</text>
+  <rect x="165" y="222" width="40" height="18" fill="#2b7de9" opacity="0.6"/>
+  <text x="185" y="214" text-anchor="middle" font-size="10">ГЛОНАСС ±0,3 м</text>
+  <!-- скрытые люки -->
+  <ellipse cx="480" cy="318" rx="26" ry="8" fill="#8fa5ba" stroke="#33475b" stroke-width="1.5"/>
+  <ellipse cx="640" cy="318" rx="26" ry="8" fill="#8fa5ba" stroke="#33475b" stroke-width="1.5"/>
+  <rect x="452" y="308" width="56" height="6" fill="#efe6d8" opacity="0.9"/>
+  <text x="480" y="395" text-anchor="middle" font-size="11" fill="#33475b">крышка под снегом/грунтом</text>
+  <!-- аномалия -->
+  <path d="M 420 180 C 450 120 510 120 540 180" fill="none" stroke="#e05c5c" stroke-width="2"/>
+  <path d="M 580 180 C 610 150 670 150 700 180" fill="none" stroke="#0a7d3c" stroke-width="2"/>
+  <text x="480" y="115" text-anchor="middle" font-size="11" fill="#e05c5c">симметричный пик 200–3000 нТл → люк</text>
+  <text x="640" y="145" text-anchor="middle" font-size="11" fill="#0a7d3c">асимметрия/плато → арматура плит</text>
+  <text x="430" y="80" text-anchor="middle" font-size="12">Магнитограмма вдоль трассы</text>
+  <!-- выход -->
+  <rect x="470" y="410" width="340" height="70" fill="#f5f8fb" stroke="#33475b" stroke-width="1"/>
+  <text x="640" y="434" text-anchor="middle" font-weight="bold" font-size="12">Выход за смену (38 км)</text>
+  <text x="640" y="456" text-anchor="middle" font-size="12">реестр люков + «ничьи» объекты + фото</text>
+  <text x="640" y="474" text-anchor="middle" font-size="11">сверка с ГИС администрации и РСО</text>
+</svg>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="500" viewBox="0 0 860 500" font-family="Arial" font-size="13">
+  <rect width="860" height="500" fill="#ffffff"/>
+  <text x="430" y="26" text-anchor="middle" font-size="16" font-weight="bold">КАПСУЛА-ЩИТ: устройство капсулы и сеть в теле полигона</text>
+  <!-- тело полигона -->
+  <path d="M 60 400 L 160 240 L 420 180 L 700 230 L 800 400 Z" fill="#efe6d8" stroke="#8a6a4a" stroke-width="2"/>
+  <text x="430" y="420" text-anchor="middle" font-size="12">Тело полигона: послойная отсыпка ТКО</text>
+  <!-- капсулы в разрезе -->
+  <circle cx="240" cy="300" r="10" fill="#0a7d3c"/>
+  <circle cx="330" cy="260" r="10" fill="#0a7d3c"/>
+  <circle cx="430" cy="240" r="10" fill="#0a7d3c"/>
+  <circle cx="530" cy="270" r="10" fill="#0a7d3c"/>
+  <circle cx="620" cy="320" r="10" fill="#0a7d3c"/>
+  <text x="430" y="160" text-anchor="middle" font-size="11" fill="#0a7d3c">Сеть капсул, шаг 6 м (в разрезе)</text>
+  <!-- очаг и активация -->
+  <circle cx="330" cy="300" r="26" fill="#e05c5c" opacity="0.5"/>
+  <circle cx="330" cy="300" r="12" fill="#e05c5c"/>
+  <text x="330" y="350" text-anchor="middle" font-size="11" fill="#7c1f1f">очаг тления, 85 °С</text>
+  <path d="M 330 260 L 300 240 M 330 260 L 330 235 M 330 260 L 360 240" stroke="#e05c5c" stroke-width="2" marker-end="url(#k)"/>
+  <defs><marker id="k" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 z" fill="#e05c5c"/></marker></defs>
+  <!-- устройство капсулы -->
+  <rect x="540" y="60" width="280" height="140" fill="#f5f8fb" stroke="#33475b" stroke-width="1"/>
+  <text x="680" y="84" text-anchor="middle" font-weight="bold" font-size="13">Капсула, крупно</text>
+  <ellipse cx="620" cy="140" rx="55" ry="30" fill="#dfe7ee" stroke="#33475b" stroke-width="2"/>
+  <rect x="668" y="128" width="14" height="24" fill="#e05c5c"/>
+  <text x="740" y="128" font-size="11">пироклапан</text>
+  <text x="740" y="144" font-size="11">85 ± 3 °С</text>
+  <text x="680" y="186" text-anchor="middle" font-size="11">аэрозоль 6,5 л за 1,2 с; корпус держит 3 т</text>
+  <!-- контроль -->
+  <rect x="60" y="440" width="740" height="44" fill="#eef4ee" stroke="#0a7d3c" stroke-width="1.5"/>
+  <text x="430" y="467" text-anchor="middle" font-size="12">Активация → радиометка (800 м) → оператор полигона и МЧС: карта статуса каждой капсулы</text>
+</svg>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="500" viewBox="0 0 860 500" font-family="Arial" font-size="13">
+  <rect width="860" height="500" fill="#ffffff"/>
+  <text x="430" y="26" text-anchor="middle" font-size="16" font-weight="bold">ПОЛЯРИС-БЕРЕГ: мачта поста и принцип поляризационного зрения</text>
+  <!-- небо и вода -->
+  <rect x="60" y="60" width="740" height="150" fill="#eaf3fb"/>
+  <circle cx="720" cy="110" r="26" fill="#ffd23f"/>
+  <rect x="60" y="210" width="740" height="200" fill="#bcd9ef"/>
+  <!-- блики -->
+  <ellipse cx="300" cy="230" rx="60" ry="8" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="520" cy="250" rx="80" ry="9" fill="#ffffff" opacity="0.7"/>
+  <ellipse cx="660" cy="235" rx="45" ry="7" fill="#ffffff" opacity="0.75"/>
+  <!-- человек под водой -->
+  <ellipse cx="470" cy="300" rx="46" ry="15" fill="#5a6f84" opacity="0.85"/>
+  <circle cx="516" cy="295" r="11" fill="#5a6f84" opacity="0.85"/>
+  <text x="470" y="336" text-anchor="middle" font-size="12" fill="#14549c">погружённый человек, глубина до 1,8 м</text>
+  <!-- мачта -->
+  <rect x="120" y="120" width="10" height="180" fill="#33475b"/>
+  <rect x="95" y="95" width="60" height="34" rx="6" fill="#dfe7ee" stroke="#33475b" stroke-width="2"/>
+  <text x="125" y="88" text-anchor="middle" font-size="11">Камера 4-DoFP</text>
+  <rect x="100" y="140" width="50" height="14" fill="#2b7de9" opacity="0.6"/>
+  <text x="125" y="172" text-anchor="middle" font-size="10">солнечная панель</text>
+  <!-- луч зрения -->
+  <line x1="150" y1="115" x2="470" y2="295" stroke="#0a7d3c" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="300" y="190" font-size="11" fill="#0a7d3c">зона обзора до 25 м акватории</text>
+  <!-- схема разделения -->
+  <rect x="560" y="90" width="240" height="110" fill="#f5f8fb" stroke="#33475b" stroke-width="1"/>
+  <text x="680" y="112" text-anchor="middle" font-weight="bold" font-size="12">Разделение слоёв</text>
+  <text x="575" y="134" font-size="11">Блики: поляризация горизонтальная</text>
+  <text x="575" y="154" font-size="11">Объект под водой: иной профиль</text>
+  <text x="575" y="174" font-size="11">4 ориентации фильтров → контраст ×3–5</text>
+  <text x="575" y="194" font-size="11">детекция на глубине 0,3–1,8 м</text>
+  <!-- берег -->
+  <rect x="60" y="410" width="740" height="30" fill="#efe6d8" stroke="#8a6a4a" stroke-width="1"/>
+  <text x="430" y="430" text-anchor="middle" font-size="12">Берег: прожектор-указатель, громкоговоритель</text>
+  <!-- оповещение -->
+  <rect x="240" y="450" width="380" height="34" fill="#eef4ee" stroke="#0a7d3c" stroke-width="1.5"/>
+  <text x="430" y="472" text-anchor="middle" font-size="12">Сигнал дежурному ЕДДС за 32 с: видео + координаты точки</text>
+</svg>
