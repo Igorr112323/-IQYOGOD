@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="500" viewBox="0 0 860 500" font-family="Arial" font-size="13">
+  <rect width="860" height="500" fill="#ffffff"/>
+  <text x="430" y="26" text-anchor="middle" font-size="16" font-weight="bold">МЕДУЗА-АГРО: технологическая схема комплекса «АЗОВ-М1»</text>
+  <!-- море и сбор -->
+  <rect x="60" y="90" width="180" height="120" fill="#bcd9ef" stroke="#33475b" stroke-width="1.5"/>
+  <text x="150" y="112" text-anchor="middle" font-size="12">Азовское море</text>
+  <ellipse cx="110" cy="160" rx="22" ry="14" fill="#d9c8ef" stroke="#7b5fae" stroke-width="1.5"/>
+  <ellipse cx="165" cy="180" rx="18" ry="11" fill="#d9c8ef" stroke="#7b5fae" stroke-width="1.5"/>
+  <text x="150" y="135" text-anchor="middle" font-size="10">корнерот, до 80 см</text>
+  <!-- контейнер -->
+  <rect x="300" y="80" width="500" height="160" rx="10" fill="#f5f8fb" stroke="#33475b" stroke-width="2"/>
+  <text x="550" y="70" text-anchor="middle" font-size="12">Комплекс «АЗОВ-М1», контейнер 20 футов, на прицепе</text>
+  <rect x="320" y="110" width="90" height="100" rx="6" fill="#dfe7ee" stroke="#33475b" stroke-width="1.5"/>
+  <text x="365" y="155" text-anchor="middle" font-size="11">бункер</text>
+  <text x="365" y="172" text-anchor="middle" font-size="10">приём 1,5 т/сут</text>
+  <rect x="430" y="110" width="90" height="100" rx="6" fill="#dfe7ee" stroke="#33475b" stroke-width="1.5"/>
+  <text x="475" y="150" text-anchor="middle" font-size="11">циклон-</text>
+  <text x="475" y="166" text-anchor="middle" font-size="11">пресс</text>
+  <text x="475" y="184" text-anchor="middle" font-size="10">−38 % массы</text>
+  <rect x="540" y="110" width="90" height="100" rx="6" fill="#dfe7ee" stroke="#33475b" stroke-width="1.5"/>
+  <text x="585" y="150" text-anchor="middle" font-size="11">реактор</text>
+  <text x="585" y="166" text-anchor="middle" font-size="10">45 °С, 6 ч</text>
+  <text x="585" y="182" text-anchor="middle" font-size="10">кавитация</text>
+  <rect x="650" y="110" width="130" height="100" rx="6" fill="#dfe7ee" stroke="#33475b" stroke-width="1.5"/>
+  <text x="715" y="150" text-anchor="middle" font-size="11">мембранное</text>
+  <text x="715" y="166" text-anchor="middle" font-size="11">концентрирование</text>
+  <text x="715" y="184" text-anchor="middle" font-size="10">СВ 18 %</text>
+  <path d="M 410 160 h 20 M 520 160 h 20 M 630 160 h 20" stroke="#33475b" stroke-width="2" marker-end="url(#m)"/>
+  <defs><marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 z" fill="#33475b"/></marker></defs>
+  <!-- таймлайн -->
+  <rect x="300" y="260" width="500" height="40" rx="8" fill="#eaf3fb" stroke="#2b7de9" stroke-width="1.5"/>
+  <text x="550" y="285" text-anchor="middle" font-size="12">Цикл «море → гидролизат» — 2 часа: быстрее, чем начнётся автолиз биомассы</text>
+  <!-- выходы -->
+  <rect x="60" y="330" width="240" height="120" fill="#eef4ee" stroke="#0a7d3c" stroke-width="1.5"/>
+  <text x="180" y="356" text-anchor="middle" font-weight="bold" font-size="12">АЗОВ-БИО</text>
+  <text x="180" y="382" text-anchor="middle" font-size="12">концентрат 1:500, листовая подкормка</text>
+  <text x="180" y="404" text-anchor="middle" font-size="12">1 200 руб./л, подписка на сезон</text>
+  <text x="180" y="426" text-anchor="middle" font-size="11">выход 114 л с тонны биомассы</text>
+  <rect x="330" y="330" width="230" height="120" fill="#fdf3e6" stroke="#f0a13c" stroke-width="1.5"/>
+  <text x="445" y="356" text-anchor="middle" font-weight="bold" font-size="12">Приём биомассы</text>
+  <text x="445" y="382" text-anchor="middle" font-size="12">муниципалитеты побережья</text>
+  <text x="445" y="404" text-anchor="middle" font-size="12">4 500 руб./т против 6–8 тыс.</text>
+  <text x="445" y="420" text-anchor="middle" font-size="12">вывоза на полигон</text>
+  <rect x="590" y="330" width="210" height="120" fill="#f5f8fb" stroke="#33475b" stroke-width="1.5"/>
+  <text x="695" y="356" text-anchor="middle" font-weight="bold" font-size="12">Жом</text>
+  <text x="695" y="382" text-anchor="middle" font-size="12">компостное сырьё</text>
+  <text x="695" y="404" text-anchor="middle" font-size="12">900 руб./т</text>
+</svg>
