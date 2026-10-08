@@ -1,25 +1,25 @@
 # -*- coding: utf-8 -*-
-"""ФИТОПУЛЬС: Монте-Карло 3 000 сценариев — выручка и окупаемость.
+"""ТРОС-ВЕКС: Монте-Карло 3 000 сценариев — выручка и окупаемость.
 
-Потоки: продажа опорных точек с установкой, сезонные подписки
-на сервис «карта сроков».
+Потоки: продажа комплектов (4 кольца на лифт) по 44-ФЗ/223-ФЗ,
+годовые контракты телеметрии.
 """
 import random
 
-random.seed(20260918)
+random.seed(20261013)
 
 N_SCEN = 3000
-START_COST = 5_100_000        # руб.: серия 150 флуориметров, платформа, пилоты
+START_COST = 4_800_000        # руб.: серия 60 комплектов, платформа, интеграции
 
 revenues = []
 profits = []
 payback = []
 for _ in range(N_SCEN):
-    points = random.triangular(80, 110, 160)
-    point_rev = points * random.triangular(320_000, 340_000, 370_000)
-    sub_rev = points * random.triangular(38_000, 42_000, 48_000)
-    revenue = point_rev + sub_rev
-    cost = points * random.triangular(66_000, 74_000, 84_000) + 2_900_000
+    lifts = random.triangular(42, 60, 88)                  # лифтов в первый год
+    kit_rev = lifts * random.triangular(170_000, 180_000, 196_000)
+    telemetry_rev = lifts * random.triangular(44_000, 48_000, 54_000)
+    revenue = kit_rev + telemetry_rev
+    cost = lifts * random.triangular(72_000, 84_000, 98_000) + 2_500_000
     profit = revenue - cost
     revenues.append(revenue)
     profits.append(profit)

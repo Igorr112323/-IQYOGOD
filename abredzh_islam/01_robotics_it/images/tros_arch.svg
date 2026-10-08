@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="500" viewBox="0 0 860 500" font-family="Arial" font-size="13">
+  <rect width="860" height="500" fill="#ffffff"/>
+  <text x="430" y="26" text-anchor="middle" font-size="16" font-weight="bold">ТРОС-ВЕКС: дефектоскопное кольцо и ресурсный журнал каната</text>
+  <!-- канат -->
+  <rect x="120" y="80" width="26" height="330" rx="13" fill="#8fa5ba" stroke="#33475b" stroke-width="2"/>
+  <path d="M 120 100 q 13 8 26 0 M 120 130 q 13 8 26 0 M 120 160 q 13 8 26 0 M 120 280 q 13 8 26 0 M 120 310 q 13 8 26 0 M 120 340 q 13 8 26 0 M 120 370 q 13 8 26 0" stroke="#33475b" stroke-width="1.5" fill="none"/>
+  <text x="133" y="430" text-anchor="middle" font-size="11">тяговый канат</text>
+  <!-- кольцо -->
+  <rect x="90" y="200" width="86" height="60" rx="10" fill="#dfe7ee" stroke="#33475b" stroke-width="2"/>
+  <circle cx="105" cy="215" r="5" fill="#e05c5c"/><circle cx="105" cy="245" r="5" fill="#e05c5c"/>
+  <circle cx="161" cy="215" r="5" fill="#2b7de9"/><circle cx="161" cy="245" r="5" fill="#2b7de9"/>
+  <text x="133" y="285" text-anchor="middle" font-size="11">кольцо 1,4 кг:</text>
+  <text x="133" y="300" text-anchor="middle" font-size="10">8 магнитов, 8 датчиков Холла</text>
+  <!-- измерение -->
+  <rect x="240" y="80" width="260" height="150" fill="#f5f8fb" stroke="#33475b" stroke-width="1"/>
+  <text x="370" y="104" text-anchor="middle" font-weight="bold" font-size="12">Ночной прогон 0,1 м/с</text>
+  <text x="255" y="132" font-size="11">LF: магнитный поток → потеря сечения</text>
+  <text x="255" y="156" font-size="11">LMA: локальные всплески → обрывы проволок</text>
+  <text x="255" y="180" font-size="11">24-битный АЦП, полнота телеметрии 99,4 %</text>
+  <text x="255" y="208" font-size="11" fill="#7c1f1f">энергия: 4 Вт; связь: 4G</text>
+  <!-- график ресурса -->
+  <rect x="540" y="80" width="270" height="180" fill="#ffffff" stroke="#33475b" stroke-width="1"/>
+  <text x="675" y="104" text-anchor="middle" font-weight="bold" font-size="12">Ресурсный журнал каната</text>
+  <polyline points="560,130 600,132 640,138 680,146 720,158 760,174 790,188" fill="none" stroke="#33475b" stroke-width="2"/>
+  <line x1="560" y1="220" x2="790" y2="220" stroke="#e05c5c" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="795" y="216" font-size="10">предел</text>
+  <text x="675" y="246" text-anchor="middle" font-size="10">тренд −1,8 % за 11 месяцев (контроль −2,1 %)</text>
+  <!-- контракт -->
+  <rect x="240" y="270" width="570" height="150" fill="#eef4ee" stroke="#0a7d3c" stroke-width="1.5"/>
+  <text x="525" y="298" text-anchor="middle" font-weight="bold" font-size="12">Контрактная модель: 44-ФЗ / 223-ФЗ</text>
+  <text x="525" y="326" text-anchor="middle" font-size="12">комплект 180 тыс. руб./лифт (4 кольца, монтаж) + телеметрия 48 тыс. руб./год</text>
+  <text x="525" y="350" text-anchor="middle" font-size="12">КПЭ: полнота телеметрии ≥ 99 % суток · подтверждённые деградации · ноль пропусков критики</text>
+  <text x="525" y="374" text-anchor="middle" font-size="12">данные — в диспетчерские УК и региональному оператору капремонта</text>
+  <text x="525" y="398" text-anchor="middle" font-size="11">аварийная замена каната → плановые работы по данным тренда</text>
+</svg>
