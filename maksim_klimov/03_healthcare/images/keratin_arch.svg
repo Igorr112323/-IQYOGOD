@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="480" viewBox="0 0 860 480" font-family="Arial" font-size="13">
+  <rect width="860" height="480" fill="#ffffff"/>
+  <text x="430" y="26" text-anchor="middle" font-size="16" font-weight="bold">Прибор КЕРАТИН-ГЛИК: окно фиксации и спектральные признаки</text>
+  <!-- корпус -->
+  <rect x="60" y="120" width="320" height="220" rx="14" fill="#eef2f7" stroke="#33475b" stroke-width="2"/>
+  <text x="220" y="110" text-anchor="middle" font-size="13" font-weight="bold">Настольный прибор</text>
+  <!-- окно фиксации -->
+  <rect x="110" y="200" width="120" height="80" rx="8" fill="#ffffff" stroke="#0a7d3c" stroke-width="2"/>
+  <ellipse cx="170" cy="240" rx="34" ry="26" fill="#f6e7d6" stroke="#8a6a4a" stroke-width="1.5"/>
+  <text x="170" y="300" text-anchor="middle" font-size="11">Окно фиксации пальца, 45 с</text>
+  <!-- лазер -->
+  <circle cx="300" cy="230" r="18" fill="#ffd23f" stroke="#7a5c2e" stroke-width="2"/>
+  <text x="300" y="270" text-anchor="middle" font-size="11">Лазер 785 нм</text>
+  <line x1="282" y1="238" x2="206" y2="240" stroke="#7a5c2e" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- экран -->
+  <rect x="250" y="140" width="110" height="44" rx="6" fill="#33475b"/>
+  <text x="305" y="168" text-anchor="middle" font-size="11" fill="#cfe3f5">HbA1c экв. 7,4 %</text>
+  <!-- спектр -->
+  <polyline points="430,320 460,300 490,305 510,290 530,300 560,295 590,285 610,180 640,280 660,285 690,270 710,160 740,275 770,285 800,290" fill="none" stroke="#0a7d3c" stroke-width="2.5"/>
+  <polyline points="430,340 460,330 490,332 510,325 530,330 560,328 590,320 610,240 640,315 660,320 690,305 710,230 740,310 770,318 800,322" fill="none" stroke="#e05c5c" stroke-width="2.5"/>
+  <line x1="610" y1="150" x2="610" y2="350" stroke="#999" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="710" y1="150" x2="710" y2="350" stroke="#999" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="610" y="145" text-anchor="middle" font-size="11">1450 см⁻¹</text>
+  <text x="710" y="145" text-anchor="middle" font-size="11">1650 см⁻¹</text>
+  <text x="615" y="372" text-anchor="middle" font-size="12">Рамановский спектр ногтевой пластины</text>
+  <text x="615" y="392" fill="#0a7d3c" font-size="11">норма</text>
+  <text x="660" y="392" fill="#e05c5c" font-size="11">гликирование: полосы смещены</text>
+  <!-- вывод -->
+  <rect x="430" y="410" width="380" height="52" fill="#f5f8fb" stroke="#33475b" stroke-width="1"/>
+  <text x="620" y="432" text-anchor="middle" font-weight="bold" font-size="12">Выход: индекс гликирования + эквивалент HbA1c</text>
+  <text x="620" y="452" text-anchor="middle" font-size="11">r = 0,87 с лабораторным HbA1c; 45 с на измерение</text>
+</svg>

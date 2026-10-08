@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="480" viewBox="0 0 860 480" font-family="Arial" font-size="13">
+  <rect width="860" height="480" fill="#ffffff"/>
+  <text x="430" y="26" text-anchor="middle" font-size="16" font-weight="bold">Модуль ИСКРА-СТОП на конвейере перед дробилкой</text>
+  <!-- конвейер -->
+  <rect x="60" y="300" width="740" height="26" fill="#c9d6e2" stroke="#33475b" stroke-width="2"/>
+  <circle cx="90" cy="345" r="14" fill="#8fa5ba"/><circle cx="770" cy="345" r="14" fill="#8fa5ba"/>
+  <text x="430" y="382" text-anchor="middle" font-size="12">Конвейер 0,8 м/с</text>
+  <!-- зона 1 -->
+  <rect x="150" y="180" width="120" height="120" fill="none" stroke="#2b7de9" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="210" y="170" text-anchor="middle" fill="#2b7de9" font-size="12">Зона 1: магнитоиндукция</text>
+  <!-- зона 2 -->
+  <rect x="340" y="180" width="120" height="120" fill="none" stroke="#e05c5c" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="400" y="170" text-anchor="middle" fill="#e05c5c" font-size="12">Зона 2: вольтметрия ЭДС</text>
+  <line x1="350" y1="300" x2="350" y2="270" stroke="#e05c5c" stroke-width="2"/>
+  <line x1="450" y1="300" x2="450" y2="270" stroke="#e05c5c" stroke-width="2"/>
+  <circle cx="350" cy="266" r="4" fill="#e05c5c"/><circle cx="450" cy="266" r="4" fill="#e05c5c"/>
+  <!-- манипулятор -->
+  <rect x="560" y="120" width="130" height="40" rx="8" fill="#dfe7ee" stroke="#33475b" stroke-width="2"/>
+  <line x1="625" y1="160" x2="625" y2="230" stroke="#33475b" stroke-width="4"/>
+  <line x1="625" y1="230" x2="585" y2="270" stroke="#33475b" stroke-width="4"/>
+  <circle cx="585" cy="274" r="9" fill="#0a7d3c"/>
+  <text x="625" y="110" text-anchor="middle" font-size="12">Манипулятор, захват 0,6 с</text>
+  <!-- бункер -->
+  <rect x="700" y="200" width="90" height="90" fill="#eef4ee" stroke="#0a7d3c" stroke-width="2"/>
+  <text x="745" y="250" text-anchor="middle" font-size="11">Бункер</text>
+  <text x="745" y="310" text-anchor="middle" font-size="11">→ утилизатору</text>
+  <!-- дробилка -->
+  <rect x="40" y="180" width="80" height="120" fill="#f3d9d9" stroke="#a33" stroke-width="2"/>
+  <text x="80" y="170" text-anchor="middle" font-size="12">Дробилка (защита)</text>
+  <!-- батарейка на ленте -->
+  <rect x="380" y="284" width="24" height="12" rx="3" fill="#ffd23f" stroke="#7a5c2e" stroke-width="1.5"/>
+  <text x="400" y="152" text-anchor="middle" font-size="11" fill="#7a5c2e">Батарейка: ЭДС 30+ мВ — событие!</text>
+</svg>
