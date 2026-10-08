@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """ТРОС-ВЕКС: Монте-Карло 3 000 сценариев — выручка и окупаемость.
 
-Потоки: продажа комплектов (4 кольца на лифт) по 44-ФЗ/223-ФЗ,
-годовые контракты телеметрии.
+Потоки: продажа комплектов (4 кольца на лифт, 180 тыс. руб.) по
+44-ФЗ/223-ФЗ, годовые контракты телеметрии (48 тыс. руб./лифт).
 """
 import random
 
@@ -15,11 +15,14 @@ revenues = []
 profits = []
 payback = []
 for _ in range(N_SCEN):
-    lifts = random.triangular(42, 60, 88)                  # лифтов в первый год
-    kit_rev = lifts * random.triangular(170_000, 180_000, 196_000)
-    telemetry_rev = lifts * random.triangular(44_000, 48_000, 54_000)
+    lifts = random.triangular(44, 58.5, 79)                # лифтов в первый год
+    kit_rev = lifts * random.triangular(174_000, 180_000, 190_000)
+    telemetry_rev = lifts * random.triangular(46_500, 48_500, 51_500)
     revenue = kit_rev + telemetry_rev
-    cost = lifts * random.triangular(72_000, 84_000, 98_000) + 2_500_000
+    # производство комплектов (кольца, магниты, датчики Холла, корпуса),
+    # монтаж, пусконаладка и интеграция с диспетчерскими
+    cost = lifts * random.triangular(124_000, 132_000, 142_000)
+    cost += random.triangular(2_350_000, 2_450_000, 2_600_000)
     profit = revenue - cost
     revenues.append(revenue)
     profits.append(profit)

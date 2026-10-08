@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Верификация фазы 4: комплектность, каноны, самооценка, окупаемость, >=5 источников в п. 2.
+# Верификация фазы 5: комплектность, каноны, самооценка, окупаемость, >=5 источников в п. 2.
 import os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -7,12 +7,22 @@ AUTHORS = ["andrey_chudikov", "maksim_klimov", "ilya_novikov",
            "drug_ilya_novikova", "abredzh_islam"]
 NOMS = ["01_robotics_it", "02_agro_biotech", "03_healthcare",
         "04_ecology_energy", "05_transport_construction"]
-# 9 несгораемых папок — не тронуты (другой формат самооценки, проверка только канонов)
-UNTOUCHED = {("andrey_chudikov", "02_agro_biotech"), ("andrey_chudikov", "04_ecology_energy"),
-             ("andrey_chudikov", "05_transport_construction"), ("maksim_klimov", "04_ecology_energy"),
-             ("ilya_novikov", "01_robotics_it"), ("ilya_novikov", "02_agro_biotech"),
-             ("ilya_novikov", "04_ecology_energy"), ("abredzh_islam", "04_ecology_energy"),
-             ("drug_ilya_novikova", "01_robotics_it")}
+# 18 несгораемых папок — не тронуты (9 фазы 3 + 9 фазы 4; другой формат
+# самооценки, проверка только канонов)
+UNTOUCHED = {
+    # фаза 3
+    ("andrey_chudikov", "02_agro_biotech"), ("andrey_chudikov", "04_ecology_energy"),
+    ("andrey_chudikov", "05_transport_construction"), ("maksim_klimov", "04_ecology_energy"),
+    ("ilya_novikov", "01_robotics_it"), ("ilya_novikov", "02_agro_biotech"),
+    ("ilya_novikov", "04_ecology_energy"), ("abredzh_islam", "04_ecology_energy"),
+    ("drug_ilya_novikova", "01_robotics_it"),
+    # фаза 4
+    ("maksim_klimov", "01_robotics_it"), ("maksim_klimov", "03_healthcare"),
+    ("maksim_klimov", "05_transport_construction"), ("ilya_novikov", "03_healthcare"),
+    ("ilya_novikov", "05_transport_construction"), ("drug_ilya_novikova", "03_healthcare"),
+    ("drug_ilya_novikova", "04_ecology_energy"), ("drug_ilya_novikova", "05_transport_construction"),
+    ("abredzh_islam", "03_healthcare"),
+}
 errors, warnings = [], []
 
 for a in AUTHORS:
@@ -29,7 +39,7 @@ for a in AUTHORS:
             errors.append(f"{a}/{n}: нет члена группы Шершнева")
         if (a, n) in UNTOUCHED:
             continue
-        # самооценка — только 16 переписанных в фазе 4
+        # самооценка — только 7 переписанных в фазе 5
         m = re.search(r"\*\*ИТОГО\*\*\s*\|\s*\*\*(\d+)\*\*", text)
         if not m or m.group(1) != "23":
             errors.append(f"{a}/{n}: ИТОГО != 23 ({m.group(1) if m else 'не найдено'})")
@@ -41,7 +51,7 @@ for a in AUTHORS:
         if re.search(r"Эффективность внедрения \| 3", text) is None:
             errors.append(f"{a}/{n}: 8.4 != 3")
         # окупаемость < 2 лет
-        pay = re.findall(r"[Оо]купаемость[^0-9]*?(\d+[,\.]?\d*)\s*мес", text)
+        pay = re.findall(r"[Оо]купаемость[^0-9]*?(\d+[,.]?\d*)\s*мес", text)
         if pay:
             vals = [float(p.replace(",", ".")) for p in pay]
             if max(vals) >= 24:
@@ -70,5 +80,5 @@ if errors:
     print("ОШИБКИ:")
     for e in errors: print("  ✗", e)
     sys.exit(1)
-print("Все проверки пройдены: ИТОГО=23 и 8.4=3 в 16 переписанных заявках фазы 4, "
+print("Все проверки пройдены: ИТОГО=23 и 8.4=3 в 7 переписанных заявках фазы 5, "
       "по ≥ 5 источников в п. 2, Богус и Шершнев — во всех 25, окупаемость < 2 лет, комплекты целы.")

@@ -15,12 +15,12 @@ revenues = []
 profits = []
 payback = []
 for _ in range(N_SCEN):
-    posts = random.triangular(16, 24, 34)
-    post_rev = posts * random.triangular(320_000, 340_000, 370_000)
+    posts = random.triangular(18, 24, 31)
+    post_rev = posts * random.triangular(331_000, 341_000, 361_000)
     sub_rev = posts * random.triangular(17, 19, 22) * 1000 * random.uniform(0.75, 0.95)
-    seasonal = random.triangular(1, 2, 4) * random.triangular(420_000, 520_000, 640_000)
+    seasonal = random.triangular(0, 0.7, 1.9) * random.triangular(440_000, 520_000, 620_000)
     revenue = post_rev + sub_rev + seasonal
-    cost = posts * random.triangular(185_000, 210_000, 240_000) + 2_100_000
+    cost = posts * random.triangular(168_000, 180_000, 196_000) + 2_100_000
     profit = revenue - cost
     revenues.append(revenue)
     profits.append(profit)

@@ -15,12 +15,12 @@ revenues = []
 profits = []
 payback = []
 for _ in range(N_SCEN):
-    area_ha = random.triangular(6000, 8500, 12000)          # га в сезон, два комплекса
-    price = random.triangular(850, 900, 980)                # руб./га
+    area_ha = random.triangular(6000, 8000, 12000)          # га в сезон, два комплекса
+    price = random.triangular(880, 905, 940)                # руб./га
     survey_rev = area_ha * price
-    season_subs = random.triangular(2, 4, 7) * random.triangular(320_000, 380_000, 460_000)
+    season_subs = random.triangular(2.5, 4, 6) * random.triangular(340_000, 380_000, 430_000)
     revenue = survey_rev + season_subs
-    cost = area_ha * random.triangular(430, 480, 540) + 2_100_000
+    cost = area_ha * random.triangular(482, 512, 548) + 2_140_000
     profit = revenue - cost
     revenues.append(revenue)
     profits.append(profit)

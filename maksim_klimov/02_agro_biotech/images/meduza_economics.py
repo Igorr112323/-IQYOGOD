@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """МЕДУЗА-АГРО: Монте-Карло 3 000 сценариев — выручка и окупаемость.
 
-Потоки: продажа концентрата «АЗОВ-БИО», контрактная переработка
-биомассы муниципалитетов, продажа жома.
+Потоки: продажа концентрата «АЗОВ-БИО» (1 200 руб./л), контрактная
+переработка биомассы муниципалитетов (4 500 руб./т), продажа жома
+(900 руб./т). Сезон август — октябрь, три комплекса «АЗОВ-М1».
 """
 import random
 
@@ -15,13 +16,16 @@ revenues = []
 profits = []
 payback = []
 for _ in range(N_SCEN):
-    biomass_t = random.triangular(260, 360, 520)             # т за сезон, три комплекса
-    conc_l = biomass_t * random.triangular(100, 114, 126)    # л концентрата
-    conc_rev = conc_l * random.triangular(1_120, 1_200, 1_300)
-    intake_rev = biomass_t * random.triangular(4_100, 4_500, 5_000)
-    pulp_rev = biomass_t * random.triangular(820, 900, 1_000)
+    biomass_t = random.triangular(74, 90, 108)               # т за сезон, три комплекса
+    conc_l = biomass_t * random.triangular(104, 114, 124)    # л концентрата
+    conc_rev = conc_l * random.triangular(1_150, 1_200, 1_260)
+    intake_rev = biomass_t * random.triangular(4_250, 4_500, 4_800)
+    pulp_rev = biomass_t * random.triangular(850, 900, 960)
     revenue = conc_rev + intake_rev + pulp_rev
-    cost = biomass_t * random.triangular(2_300, 2_650, 3_050) + 2_400_000
+    # сбор, логистика, переработка и сбыт — на литр концентрата,
+    # плюс постоянные затраты трёх комплексов
+    cost = conc_l * random.triangular(425, 450, 480)
+    cost += random.triangular(4_600_000, 4_800_000, 5_000_000)
     profit = revenue - cost
     revenues.append(revenue)
     profits.append(profit)

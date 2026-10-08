@@ -1,26 +1,29 @@
 # -*- coding: utf-8 -*-
 """ИКСОД-НАДЗОР: Монте-Карло 3 000 сценариев — выручка и окупаемость.
 
-Потоки: продажа сетей (4 ловушки) с установкой, годовое обслуживание,
-сезонные контракты на надзор территорий.
+Потоки: продажа сетей (4 ловушки, 380 тыс. руб. с установкой), годовое
+обслуживание сети (190 тыс. руб.), сезонные контракты на надзор
+территорий. Первый год — 20 сетей (80 ловушек), включая серию-задел
+из 40 ловушек.
 """
 import random
 
 random.seed(20261011)
 
 N_SCEN = 3000
-START_COST = 5_400_000        # руб.: серия 40 ловушек, датасет, интеграции
+START_COST = 5_400_000        # руб.: серия ловушек, датасет, интеграции
 
 revenues = []
 profits = []
 payback = []
 for _ in range(N_SCEN):
-    nets = random.triangular(28, 40, 58)                     # сетей в первый год
-    sale_rev = nets * random.triangular(360_000, 380_000, 410_000)
-    service_rev = nets * random.triangular(175_000, 190_000, 215_000)
-    seasonal = random.triangular(2, 4, 7) * random.triangular(280_000, 340_000, 420_000)
+    nets = random.triangular(14, 19, 27)                     # сетей в первый год
+    sale_rev = nets * random.triangular(368_000, 380_000, 398_000)
+    service_rev = nets * random.triangular(182_000, 190_000, 202_000)
+    seasonal = random.triangular(1, 2.5, 4) * random.triangular(300_000, 340_000, 400_000)
     revenue = sale_rev + service_rev + seasonal
-    cost = nets * random.triangular(145_000, 165_000, 190_000) + 2_600_000
+    cost = nets * random.triangular(208_000, 220_000, 236_000)
+    cost += random.triangular(4_100_000, 4_500_000, 4_900_000)
     profit = revenue - cost
     revenues.append(revenue)
     profits.append(profit)
