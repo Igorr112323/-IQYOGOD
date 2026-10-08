@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="430" viewBox="0 0 860 430" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="860" height="430" fill="#ffffff"/>
+  <text x="430" y="24" text-anchor="middle" font-size="15" font-weight="bold">Узел «НОС-КОД»: слух двора</text>
+  <!-- столб -->
+  <rect x="196" y="90" width="8" height="280" fill="#78909c"/>
+  <rect x="150" y="70" width="100" height="46" rx="8" fill="#ffca28" stroke="#ef6c00" stroke-width="2"/>
+  <text x="200" y="98" text-anchor="middle" font-size="11">узел</text>
+  <!-- микрофоны -->
+  <g fill="#37474f">
+    <circle cx="150" cy="60" r="4"/><circle cx="250" cy="60" r="4"/>
+    <circle cx="150" cy="130" r="4"/><circle cx="250" cy="130" r="4"/>
+  </g>
+  <text x="200" y="150" text-anchor="middle">4 направленных микрофона</text>
+  <!-- звуковые волны -->
+  <g stroke="#1b5e20" fill="none" stroke-width="1.5" opacity="0.7">
+    <path d="M120 93 q-30 0 -30 -30"/><path d="M112 93 q-50 0 -50 -50"/>
+    <path d="M280 93 q30 0 30 -30"/><path d="M288 93 q50 0 50 -50"/>
+  </g>
+  <!-- радиус -->
+  <circle cx="200" cy="93" r="120" fill="#1b5e20" opacity="0.08"/>
+  <text x="200" y="230" text-anchor="middle">слышит стаю до 120 м</text>
+  <!-- камера -->
+  <rect x="400" y="90" width="120" height="60" rx="8" fill="#e3f2fd" stroke="#0d47a1" stroke-width="2"/>
+  <circle cx="430" cy="120" r="14" fill="#90caf9" stroke="#0d47a1"/>
+  <text x="460" y="180" text-anchor="middle">камера верификации:</text>
+  <text x="460" y="196" text-anchor="middle">30 с только по событию</text>
+  <path d="M250 105 L400 115" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <!-- диспетчерская -->
+  <rect x="600" y="90" width="220" height="120" rx="10" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+  <text x="710" y="118" text-anchor="middle" font-weight="bold">Диспетчерская</text>
+  <text x="710" y="140" text-anchor="middle">наряд службе отлова:</text>
+  <text x="710" y="158" text-anchor="middle">точка, кадр, время</text>
+  <text x="710" y="176" text-anchor="middle">норматив 40 минут</text>
+  <path d="M520 120 L600 130" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#555"/>
+    </marker>
+  </defs>
+  <!-- дашборд -->
+  <rect x="400" y="260" width="420" height="120" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="610" y="288" text-anchor="middle" font-weight="bold">Открытый дашборд района</text>
+  <text x="610" y="310" text-anchor="middle">жители и школа видят статусы нарядов</text>
+  <text x="610" y="328" text-anchor="middle">карта стай — основа маршрутов отлова</text>
+  <path d="M710 210 L660 260" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="200" y="330" text-anchor="middle">батарея 14 месяцев</text>
+  <text x="200" y="350" text-anchor="middle">звук не записывается и не передаётся</text>
+</svg>

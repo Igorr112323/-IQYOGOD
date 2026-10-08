@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="430" viewBox="0 0 880 430" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="880" height="430" fill="#ffffff"/>
+  <text x="440" y="24" text-anchor="middle" font-size="15" font-weight="bold">Датчик «СЕТЬ-КОНТРОЛЬ» на арматуре сети</text>
+  <!-- труба -->
+  <rect x="60" y="250" width="480" height="34" fill="#90a4ae" stroke="#455a64" stroke-width="2"/>
+  <text x="300" y="240" text-anchor="middle">магистраль водоснабжения</text>
+  <!-- задвижка -->
+  <rect x="270" y="200" width="60" height="50" fill="#607d8b" stroke="#37474f"/>
+  <rect x="290" y="160" width="20" height="44" fill="#37474f"/>
+  <circle cx="300" cy="152" r="12" fill="#ffca28" stroke="#ef6c00" stroke-width="2"/>
+  <text x="360" y="180">задвижка / гидрант</text>
+  <!-- датчик -->
+  <rect x="272" y="290" width="56" height="34" rx="6" fill="#ffca28" stroke="#ef6c00" stroke-width="2"/>
+  <text x="300" y="311" text-anchor="middle" font-size="11">датчик</text>
+  <text x="300" y="345" text-anchor="middle">акустика утечки · батарея 3 года · радиоканал</text>
+  <!-- утечка -->
+  <path d="M430 268 q6 14 -2 24 q-6 10 2 18" stroke="#1e88e5" stroke-width="3" fill="none"/>
+  <text x="470" y="300" fill="#1e88e5">утечка: шум слышен на арматуре</text>
+  <!-- локализация -->
+  <path d="M328 300 q90 40 190 -10" stroke="#0d47a1" stroke-dasharray="5 4" fill="none"/>
+  <path d="M328 300 q60 -90 190 -130" stroke="#0d47a1" stroke-dasharray="5 4" fill="none"/>
+  <rect x="560" y="120" width="290" height="170" rx="10" fill="#e3f2fd" stroke="#0d47a1" stroke-width="2"/>
+  <text x="705" y="150" text-anchor="middle" font-weight="bold">Платформа</text>
+  <text x="705" y="174" text-anchor="middle">корреляция соседних датчиков: точность до 10 м</text>
+  <text x="705" y="192" text-anchor="middle">небаланс зоны: скрытые утечки</text>
+  <text x="705" y="210" text-anchor="middle">индекс риска: вероятность × последствия</text>
+  <text x="705" y="228" text-anchor="middle">план ремонтов с обоснованием КПЭ</text>
+  <text x="705" y="246" text-anchor="middle">наряд владельцу сетей за 6 часов</text>
+  <text x="705" y="264" text-anchor="middle">выгрузка для 44-ФЗ / 223-ФЗ / концессии</text>
+  <!-- КПЭ -->
+  <rect x="560" y="310" width="290" height="80" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="705" y="338" text-anchor="middle" font-weight="bold">КПЭ инвестиционной программы</text>
+  <text x="705" y="360" text-anchor="middle">исполнение подтверждается данными платформы</text>
+  <path d="M705 290 L705 310" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#555"/>
+    </marker>
+  </defs>
+</svg>
