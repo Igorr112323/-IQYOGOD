@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="500" viewBox="0 0 860 500" font-family="Arial" font-size="13">
+  <rect width="860" height="500" fill="#ffffff"/>
+  <text x="430" y="26" text-anchor="middle" font-size="16" font-weight="bold">ГРУНТ-ЭХО: расстановка датчиков и виртуальные трассы</text>
+  <!-- дорога -->
+  <rect x="60" y="90" width="740" height="70" fill="#d8dde3" stroke="#33475b" stroke-width="1.5"/>
+  <line x1="60" y1="125" x2="800" y2="125" stroke="#ffffff" stroke-width="3" stroke-dasharray="20 14"/>
+  <text x="430" y="80" text-anchor="middle" font-size="12">Проезжая часть: трафик — источник шума</text>
+  <!-- датчики -->
+  <circle cx="120" cy="175" r="8" fill="#0a7d3c"/><text x="120" y="196" text-anchor="middle" font-size="11">1</text>
+  <circle cx="220" cy="175" r="8" fill="#0a7d3c"/><text x="220" y="196" text-anchor="middle" font-size="11">2</text>
+  <circle cx="320" cy="175" r="8" fill="#0a7d3c"/><text x="320" y="196" text-anchor="middle" font-size="11">3</text>
+  <circle cx="420" cy="175" r="8" fill="#0a7d3c"/><text x="420" y="196" text-anchor="middle" font-size="11">4</text>
+  <circle cx="520" cy="175" r="8" fill="#0a7d3c"/><text x="520" y="196" text-anchor="middle" font-size="11">5</text>
+  <circle cx="620" cy="175" r="8" fill="#0a7d3c"/><text x="620" y="196" text-anchor="middle" font-size="11">6</text>
+  <circle cx="700" cy="175" r="8" fill="#0a7d3c"/><text x="700" y="196" text-anchor="middle" font-size="11">7</text>
+  <circle cx="770" cy="175" r="8" fill="#0a7d3c"/><text x="770" y="196" text-anchor="middle" font-size="11">8</text>
+  <!-- виртуальные трассы -->
+  <line x1="120" y1="175" x2="420" y2="175" stroke="#2b7de9" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+  <line x1="220" y1="175" x2="620" y2="175" stroke="#2b7de9" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+  <line x1="320" y1="175" x2="770" y2="175" stroke="#2b7de9" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+  <text x="430" y="215" text-anchor="middle" font-size="11" fill="#2b7de9">28 виртуальных трасс из 8 датчиков</text>
+  <!-- грунт -->
+  <rect x="60" y="230" width="740" height="150" fill="#efe6d8" stroke="#8a6a4a" stroke-width="1"/>
+  <!-- коллектор -->
+  <rect x="60" y="330" width="740" height="26" fill="#c9d6e2" stroke="#33475b" stroke-width="2"/>
+  <text x="430" y="372" text-anchor="middle" font-size="12">Коллектор ∅1000 мм, глубина 6+ м</text>
+  <!-- полость -->
+  <ellipse cx="560" cy="295" rx="46" ry="22" fill="#e05c5c" opacity="0.55" stroke="#a33" stroke-width="2"/>
+  <text x="560" y="300" text-anchor="middle" font-size="11" fill="#7c1f1f">полость 0,9 м³</text>
+  <line x1="560" y1="272" x2="560" y2="175" stroke="#a33" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <!-- легенда -->
+  <rect x="90" y="400" width="680" height="70" fill="#f5f8fb" stroke="#33475b" stroke-width="1"/>
+  <text x="110" y="424" font-size="12">Пилот, ул. Московская, 500 м: δv/v = −3,1 %, −4,7 %, −6,4 % (красный уровень −6,4 % подтверждён шурфованием)</text>
+  <text x="110" y="448" font-size="12">Наряд водоканалу передан за 6 суток до фиксации просадки покрытия дорожной службой</text>
+</svg>

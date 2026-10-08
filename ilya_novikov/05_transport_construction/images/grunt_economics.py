@@ -1,36 +1,39 @@
-# ГРУНТ-МЕМ М1: Монте-Карло 3 000 итераций — предотвращённый ущерб провала и окупаемость
-# Запуск: python3 grunt_economics.py -> grunt_economics.png
-import numpy as np
-import matplotlib.pyplot as plt
+# -*- coding: utf-8 -*-
+"""ГРУНТ-ЭХО: Монте-Карло 3 000 сценариев — выручка и окупаемость услуги обследования.
 
-rng = np.random.default_rng(100)
-N = 3000
+Случайные величины: километраж обследования в год, цена за км,
+доля повторных обследований, операционные расходы.
+"""
+import random
 
-# ущерб одного провала районного масштаба (млн руб.): аварийный ремонт, перекрытие, сети
-excav = rng.triangular(4.0, 7.5, 14.0, size=N)      # раскопки и восстановление коллектора
-road = rng.triangular(2.0, 4.2, 8.0, size=N)       # дорожное полотно и перекрытие
-util = rng.triangular(1.0, 2.6, 6.5, size=N)       # повреждённые смежные сети
-social = rng.triangular(0.5, 1.4, 3.0, size=N)     # компенсации, простой, объезды
-damage = excav + road + util + social
+random.seed(20260615)
 
-points = 190                                         # точек мониторинга в первый полный год
-margin = 27                                          # тыс. руб./точка
-capex = 3.4                                          # млн руб.
-net = 5.2                                            # млн руб./год
-payback = 12 * capex / net
+N_SCEN = 3000
+START_COST = 1_900_000        # руб.: серия датчиков, контроллеры, поверка
+PRICE_PER_KM = 380_000        # руб./км
+COST_PER_KM = 130_000         # руб./км полевые + обработка
 
-plt.rcParams.update({"font.size": 9})
-fig, ax = plt.subplots(1, 2, figsize=(10, 4.2))
-ax[0].hist(damage, bins=40, color="#b71c1c", alpha=0.75)
-ax[0].axvline(np.median(damage), color="k", ls="--", lw=1)
-ax[0].set_title(f"Ущерб одного провала, млн руб. (медиана {np.median(damage):.1f})")
-ax[0].set_xlabel("млн руб."); ax[0].set_ylabel("итерации")
-ax[1].bar(["маржа/точка, тыс.", "капзатраты, млн", "чистый результат, млн"],
-          [margin, capex, net], color="#0d47a1", alpha=0.85)
-ax[1].set_title(f"{points} точек в год, окупаемость {payback:.1f} мес.")
-ax[1].set_ylabel("значение"); ax[1].grid(alpha=0.3)
-fig.suptitle(f"ГРУНТ-МЕМ М1: Монте-Карло {N} итераций")
-fig.tight_layout()
-fig.savefig("grunt_economics.png", dpi=150)
-print("ущерб провала: медиана %.1f млн руб. (p10 %.1f, p90 %.1f); окупаемость %.1f мес."
-      % (np.median(damage), np.percentile(damage, 10), np.percentile(damage, 90), payback))
+revenues = []
+profits = []
+payback = []
+for _ in range(N_SCEN):
+    km = random.triangular(10, 15, 22)
+    repeat = random.betavariate(3, 7)               # доля повторных контрактов
+    km_eff = km * (1 + 0.3 * repeat)
+    revenue = km_eff * PRICE_PER_KM
+    cost = km_eff * COST_PER_KM + 1_150_000         # постоянные расходы/год
+    profit = revenue - cost
+    revenues.append(revenue)
+    profits.append(profit)
+    payback.append(START_COST / max(profit / 12, 1))
+
+revenues.sort(); profits.sort(); payback.sort()
+
+def pct(v, p):
+    return v[int(len(v) * p)]
+
+print(f"Сценариев: {N_SCEN}")
+print(f"Выручка, млн руб/год: медиана {pct(revenues,0.5)/1e6:.2f}; Q75 {pct(revenues,0.75)/1e6:.2f}")
+print(f"Прибыль, млн руб/год: медиана {pct(profits,0.5)/1e6:.2f}")
+print(f"Окупаемость, мес: медиана {pct(payback,0.5):.1f}; 95-й процентиль {pct(payback,0.95):.1f}")
+print(f"Доля сценариев с окупаемостью < 24 мес: {sum(1 for m in payback if m < 24)/N_SCEN:.2f}")
