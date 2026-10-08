@@ -1,36 +1,42 @@
-# СВЕТЛЫЙ РАЙОН: экономика платформы на 12 поселений (Монте-Карло)
-# Запуск: python3 svetly_economics.py -> svetly_economics.png
-import numpy as np
-import matplotlib.pyplot as plt
+# -*- coding: utf-8 -*-
+"""Экономика платформы «СВЕТЛЫЙ РАЙОН»: Монте-Карло, 3000 сценариев.
 
-rng = np.random.default_rng(29)
+Модель: собственные вложения проекта — 3,4 млн руб. (пилотный энергосервисный
+контракт 2,9 млн руб. + прототип платформы 0,5 млн руб.). Выручка — сервисная
+маржа за организацию ЭСКО в поселениях первого года (инжиниринг, сеть
+подрядчиков, верификация экономии, телеметрия). Капзатраты на модернизацию
+освещения (≈96 млн руб. по 12 поселениям) финансируют энергосервисные
+партнёры — в инвестиции проекта они не входят.
+
+Чистый модуль random (без numpy).
+"""
+import random
+
+random.seed(20260404)
 N = 3000
+START = 3.4  # млн руб. — собственные вложения (пилот + платформа)
 
-points = rng.triangular(6000, 8000, 10000, N).astype(int)     # светоточек
-old_w = rng.uniform(180, 250, N)        # Вт средняя старая лампа ДНаТ/ДРЛ
-new_w = rng.uniform(55, 100, N)         # Вт новая с диммированием
-hours = 4100.0                            # часов горения в год
-tariff = rng.uniform(5.2, 7.4, N)         # руб/кВт-ч (сельский/город)
+rev, prof, pay = [], [], []
+for _ in range(N):
+    settlements = random.triangular(7, 12, 10.5)  # поселений с контрактами за 1-й год
+    fee = random.uniform(0.95, 1.35)              # сервисная маржа с поселения, млн руб.
+    r = settlements * fee                         # выручка, млн руб./год
+    var = random.uniform(0.52, 0.64)              # переменные расходы (доля выручки)
+    fixed = 1.6                                   # постоянные расходы, млн руб./год
+    p = r * (1.0 - var) - fixed                   # прибыль, млн руб./год
+    rev.append(r)
+    prof.append(p)
+    pay.append(START * 12.0 / p if p > 0 else 999.0)
 
-kwh_old = points * old_w * hours / 1e3
-kwh_new = points * new_w * hours / 1e3
-saving = (kwh_old - kwh_new) * tariff / 1e6    # млн руб/год
+rev.sort()
+prof.sort()
+pay.sort()
+med = lambda a: a[len(a) // 2]
+p95 = lambda a: a[int(len(a) * 0.95)]
+share = sum(1.0 for x in pay if x < 24.0) / len(pay)
 
-capex = points * rng.uniform(6.0, 7.0) / 1e3   # млн руб, 6-7 тыс/точка
-payback = capex / (saving * 0.9)
-
-plt.rcParams.update({"font.size": 9})
-fig, ax = plt.subplots(1, 2, figsize=(10, 4.2))
-ax[0].hist(saving, bins=40, color="#2e7d32", alpha=0.85)
-ax[0].axvline(np.median(saving), color="k", ls="--", lw=1)
-ax[0].set_title(f"Экономия 12 поселений, млн руб./год (медиана {np.median(saving):.0f})")
-ax[0].set_ylabel("сценарии")
-ax[1].hist(payback, bins=40, color="#15417d", alpha=0.85)
-ax[1].axvline(7, color="#c62828", ls="--", lw=1.4)
-ax[1].set_title(f"Окупаемость, лет (медиана {np.median(payback):.1f}; контракт 7 лет)")
-ax[1].set_ylabel("сценарии")
-fig.suptitle("СВЕТЛЫЙ РАЙОН: платит не бюджет, а неэффективная лампа")
-fig.tight_layout()
-fig.savefig("svetly_economics.png", dpi=150)
-print("медиана экономии %.1f млн руб./год, окупаемость %.1f года"
-      % (np.median(saving), np.median(payback)))
+print("Сценариев: %d" % N)
+print("Выручка, млн руб/год: медиана %.2f; Q75 %.2f" % (med(rev), rev[int(N * 0.75)]))
+print("Прибыль, млн руб/год: медиана %.2f" % med(prof))
+print("Окупаемость, мес: медиана %.1f; 95-й процентиль %.1f" % (med(pay), p95(pay)))
+print("Доля сценариев с окупаемостью < 24 мес: %.2f" % share)
