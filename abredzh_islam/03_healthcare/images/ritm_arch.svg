@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="500" viewBox="0 0 860 500" font-family="Arial" font-size="13">
+  <rect width="860" height="500" fill="#ffffff"/>
+  <text x="430" y="26" text-anchor="middle" font-size="16" font-weight="bold">РИТМ-КАДРЫ: киоск комплекса и уровни индекса состояния</text>
+  <!-- киоск -->
+  <rect x="90" y="120" width="150" height="280" rx="12" fill="#dfe7ee" stroke="#33475b" stroke-width="2"/>
+  <rect x="110" y="145" width="110" height="150" rx="6" fill="#ffffff" stroke="#33475b" stroke-width="1.5"/>
+  <circle cx="165" cy="330" r="12" fill="#33475b"/>
+  <text x="165" y="365" text-anchor="middle" font-size="10">направленный</text>
+  <text x="165" y="380" text-anchor="middle" font-size="10">микрофон</text>
+  <text x="165" y="135" text-anchor="middle" font-size="11">тест 40 с</text>
+  <!-- волновая дорожка -->
+  <polyline points="120,220 132,195 140,235 152,185 162,245 174,200 186,230 198,205 210,220" fill="none" stroke="#2b7de9" stroke-width="2"/>
+  <!-- признаки -->
+  <rect x="290" y="120" width="240" height="180" fill="#f5f8fb" stroke="#33475b" stroke-width="1"/>
+  <text x="410" y="145" text-anchor="middle" font-weight="bold" font-size="12">18 акустических признаков</text>
+  <text x="305" y="172" font-size="11">• джиттер и шиммер</text>
+  <text x="305" y="194" font-size="11">• темп речи и паузация</text>
+  <text x="305" y="216" font-size="11">• контур просодии</text>
+  <text x="305" y="238" font-size="11">• спектральная энергия</text>
+  <text x="305" y="260" font-size="11">• сравнение с индивидуальной нормой</text>
+  <text x="305" y="286" font-size="11" fill="#7c1f1f">запись не покидает контур организации</text>
+  <!-- уровни -->
+  <rect x="580" y="120" width="220" height="180" fill="#ffffff" stroke="#33475b" stroke-width="1"/>
+  <text x="690" y="145" text-anchor="middle" font-weight="bold" font-size="12">Индекс состояния</text>
+  <rect x="600" y="160" width="180" height="30" rx="8" fill="#0a7d3c" opacity="0.8"/>
+  <text x="690" y="180" text-anchor="middle" font-size="12" fill="#fff">зелёный — работа по графику</text>
+  <rect x="600" y="200" width="180" height="30" rx="8" fill="#f0a13c"/>
+  <text x="690" y="220" text-anchor="middle" font-size="12">жёлтый — наблюдение</text>
+  <rect x="600" y="240" width="180" height="30" rx="8" fill="#e05c5c" opacity="0.85"/>
+  <text x="690" y="260" text-anchor="middle" font-size="12" fill="#fff">красный — снять нагрузку</text>
+  <!-- управленческая связка -->
+  <rect x="290" y="340" width="510" height="110" fill="#eef4ee" stroke="#0a7d3c" stroke-width="1.5"/>
+  <text x="545" y="368" text-anchor="middle" font-weight="bold" font-size="12">Управленческая связка</text>
+  <text x="545" y="392" text-anchor="middle" font-size="12">индекс → кадровые КПЭ подразделения → план смен и нагрузки</text>
+  <text x="545" y="414" text-anchor="middle" font-size="12">красный индекс: перераспределение, отдых, психолог (без дисциплинарных последствий)</text>
+  <text x="545" y="436" text-anchor="middle" font-size="11">годовой отчёт министерству о динамике индекса</text>
+</svg>

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Верификация фазы 3: комплектность, каноны, самооценка, окупаемость.
+# Верификация фазы 4: комплектность, каноны, самооценка, окупаемость, >=5 источников в п. 2.
 import os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -7,11 +7,12 @@ AUTHORS = ["andrey_chudikov", "maksim_klimov", "ilya_novikov",
            "drug_ilya_novikova", "abredzh_islam"]
 NOMS = ["01_robotics_it", "02_agro_biotech", "03_healthcare",
         "04_ecology_energy", "05_transport_construction"]
-# 8 папок фазы 2 — не тронуты (другой формат самооценки, проверка только канонов)
+# 9 несгораемых папок — не тронуты (другой формат самооценки, проверка только канонов)
 UNTOUCHED = {("andrey_chudikov", "02_agro_biotech"), ("andrey_chudikov", "04_ecology_energy"),
              ("andrey_chudikov", "05_transport_construction"), ("maksim_klimov", "04_ecology_energy"),
              ("ilya_novikov", "01_robotics_it"), ("ilya_novikov", "02_agro_biotech"),
-             ("ilya_novikov", "04_ecology_energy"), ("abredzh_islam", "04_ecology_energy")}
+             ("ilya_novikov", "04_ecology_energy"), ("abredzh_islam", "04_ecology_energy"),
+             ("drug_ilya_novikova", "01_robotics_it")}
 errors, warnings = [], []
 
 for a in AUTHORS:
@@ -28,10 +29,15 @@ for a in AUTHORS:
             errors.append(f"{a}/{n}: нет члена группы Шершнева")
         if (a, n) in UNTOUCHED:
             continue
-        # самооценка — только 17 переписанных
+        # самооценка — только 16 переписанных в фазе 4
         m = re.search(r"\*\*ИТОГО\*\*\s*\|\s*\*\*(\d+)\*\*", text)
         if not m or m.group(1) != "23":
             errors.append(f"{a}/{n}: ИТОГО != 23 ({m.group(1) if m else 'не найдено'})")
+        # не менее 5 источников в п. 2 (между «## 2» и «## 3»)
+        sec2 = re.search(r"## 2\..*?(?=## 3\.)", text, re.S)
+        urls = re.findall(r"https?://\S+", sec2.group(0)) if sec2 else []
+        if len(urls) < 5:
+            errors.append(f"{a}/{n}: источников в п. 2 — {len(urls)} (< 5)")
         if re.search(r"Эффективность внедрения \| 3", text) is None:
             errors.append(f"{a}/{n}: 8.4 != 3")
         # окупаемость < 2 лет
@@ -64,5 +70,5 @@ if errors:
     print("ОШИБКИ:")
     for e in errors: print("  ✗", e)
     sys.exit(1)
-print("Все проверки пройдены: ИТОГО=23 и 8.4=3 в 17 переписанных заявках, "
-      "Богус и Шершнев — во всех 25, окупаемость < 2 лет, комплекты целы.")
+print("Все проверки пройдены: ИТОГО=23 и 8.4=3 в 16 переписанных заявках фазы 4, "
+      "по ≥ 5 источников в п. 2, Богус и Шершнев — во всех 25, окупаемость < 2 лет, комплекты целы.")
