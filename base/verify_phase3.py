@@ -61,9 +61,9 @@ for a in AUTHORS:
                 errors.append(f"{a}/{n}: остался удалённый объект {gone}")
         # комплект файлов
         imgs = [f for f in os.listdir(os.path.join(d, "images"))
-                if f.endswith((".mmd", ".py", ".svg"))]
+                if f.endswith((".mmd", ".py", ".svg", ".png"))]
         exts = {os.path.splitext(f)[1] for f in imgs}
-        if exts != {".mmd", ".py", ".svg"} or len(imgs) < 3:
+        if not {".mmd", ".py", ".svg", ".png"} <= exts or len(imgs) < 5:
             errors.append(f"{a}/{n}: images неполный: {sorted(imgs)}")
         code = [f for f in os.listdir(os.path.join(d, "code")) if not f.startswith(".")]
         if len(code) < 2:
