@@ -1,32 +1,42 @@
-# ЗЕРНО-РЕНТГЕН: кривая точность/потери и экономика элеватора
-# Запуск: python3 zernorentgen_economics.py -> zernorentgen_economics.png
-import numpy as np
-import matplotlib.pyplot as plt
+# -*- coding: utf-8 -*-
+# ЗЕРНО-РЕНТГЕН: экономика элеватора, Монте-Карло 3 000 сценариев.
+# Только стандартная библиотека (без numpy).
+# Точность/порог (из задела 2026 г., строки ниже — без стохастики):
+#   точность по фузариозу = 0,965 − 0,05*exp(−((t−0,45)^2)/0,02) − 0,012*(t>0,8)
+#   потеря чистого зерна  = 0,004 + 0,035*exp(−((t−0,30)^2)/0,03)
+#   рабочий порог 0,55: точность 94,6 %, потеря чистого 1,3 %.
+# Эффект элеватора: предотвращённое смешение фузариозной партии, снижающее класс ёмкости.
+# Модуль серии 4,7 млн руб., эксплуатация 380 тыс. руб./сезон.
+import math
+import random
 
-# Кривая из задела: варьирование порога классификатора
-threshold = np.linspace(0.2, 0.9, 71)
-accuracy = 0.965 - 0.05 * np.exp(-((threshold - 0.45) ** 2) / 0.02) - 0.012 * (threshold > 0.8)
-loss_clean = 0.004 + 0.035 * np.exp(-((threshold - 0.30) ** 2) / 0.03)
 
-plt.rcParams.update({"font.size": 9})
-fig, ax = plt.subplots(1, 2, figsize=(10, 4.2))
+def accuracy(t):
+    return 0.965 - 0.05 * math.exp(-((t - 0.45) ** 2) / 0.02) - 0.012 * (1 if t > 0.8 else 0)
 
-ax[0].plot(threshold, accuracy * 100, label="точность по фузариозу, %")
-ax[0].plot(threshold, loss_clean * 100, label="потеря чистого зерна, %")
-ax[0].axvline(0.55, color="r", ls="--", lw=1, label="рабочий порог (94,6 % / 1,3 %)")
-ax[0].set_xlabel("порог классификатора"); ax[0].grid(alpha=0.3); ax[0].legend(fontsize=8)
 
-rng = np.random.default_rng(12)
-N = 2000
-mix_t = rng.triangular(900, 1500, 2400, N)            # т партий под риском
-delta = rng.triangular(2400, 2800, 3200, N)           # руб./т разницы классов
-effect = mix_t * delta / 1e6
-ax[1].hist(effect, bins=40, color="#4e342e", alpha=0.85)
-ax[1].axvline(np.median(effect), color="k", ls="--", lw=1)
-ax[1].set_title(f"Эффект элеватора, млн руб./сезон (медиана {np.median(effect):.1f})")
-ax[1].set_xlabel("млн руб./сезон"); ax[1].set_ylabel("сценарии")
+def loss_clean(t):
+    return 0.004 + 0.035 * math.exp(-((t - 0.30) ** 2) / 0.03)
 
-fig.suptitle("ЗЕРНО-РЕНТГЕН: задел 2026 г. + Монте-Карло 2000 сценариев")
-fig.tight_layout()
-fig.savefig("zernorentgen_economics.png", dpi=150)
-print("медиана эффекта элеватора %.2f млн руб./сезон" % np.median(effect))
+
+random.seed(12)
+N = 3000
+MODULE = 4.7            # млн руб., стоимость модуля серии
+OPEX = 0.38             # млн руб./сезон, эксплуатация
+
+effects = []
+paybacks = []
+for _ in range(N):
+    mix_t = random.triangular(900, 1400, 2400)    # т партий под риском смешения за сезон
+    delta = random.triangular(2400, 2800, 3200)   # руб./т разницы классов
+    effect = mix_t * delta / 1e6                  # млн руб./сезон
+    effects.append(effect)
+    paybacks.append(MODULE / (effect - OPEX))     # сезонов
+
+effects.sort(); paybacks.sort()
+med = lambda v: v[len(v) // 2]
+
+print("ЗЕРНО-РЕНТГЕН: Монте-Карло %d сценариев (рабочий порог 0,55: точность %.1f %%, потеря %.1f %%)"
+      % (N, accuracy(0.55) * 100, loss_clean(0.55) * 100))
+print("Эффект элеватора: медиана %.1f млн руб./сезон" % med(effects))
+print("Окупаемость модуля 4,7 млн руб. (эксплуатация 380 тыс./сезон): медиана %.2f сезона" % med(paybacks))

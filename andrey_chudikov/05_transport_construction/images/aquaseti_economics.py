@@ -1,36 +1,46 @@
-# АКУСТИК-СЕТИ: экономика обнаружения утечек, Монте-Карло 3000 сценариев
-# Запуск: python3 aquaseti_economics.py -> aquaseti_economics.png
-import numpy as np
-import matplotlib.pyplot as plt
+# -*- coding: utf-8 -*-
+# АКУСТИК-СЕТИ: экономика обнаружения утечек, Монте-Карло 3 000 сценариев.
+# Только стандартная библиотека (без numpy/matplotlib).
+# 200 км магистралей Новороссийска, 900 акустических узлов (7 200 руб./узел) + 1,4 млн руб.
+# сервер и внедрение; тариф 47 руб./м3.
+import math
+import random
 
-rng = np.random.default_rng(3)
+random.seed(3)
 N = 3000
-LENGTH_KM = 200.0
-TARIFF = 47.0            # руб./м³, Новороссийск
+TARIFF = 47.0                       # руб./м3, Новороссийск
 NODES = 900
-CAPEX = NODES * 7200 + 1.4e6   # узлы + сервер/внедрение
+CAPEX = (NODES * 7200 + 1.4e6) / 1e6   # млн руб. = 7,88
 
-leaks_year = rng.poisson(np.clip(rng.normal(46, 9, N), 20, 90))      # скрытых утечек/год
-q_m3h = rng.triangular(0.6, 1.2, 2.4, N)                              # средний дебит
-months_hidden = rng.triangular(1.0, 3.0, 6.0, N)                      # без системы
-saved_m3 = leaks_year * q_m3h * 24 * 30.4 * months_hidden
-water_money = saved_m3 * TARIFF / 1e6
-avaria = rng.poisson(10, N) * rng.triangular(300, 400, 600, N) * 1e3 / 1e6
-total = water_money + avaria
-payback_years = CAPEX / 1e6 / total
 
-plt.rcParams.update({"font.size": 9})
-fig, ax = plt.subplots(1, 2, figsize=(10, 4.2))
-ax[0].hist(total, bins=40, color="#01579b", alpha=0.85)
-ax[0].axvline(np.median(total), color="k", ls="--", lw=1)
-ax[0].set_title(f"Эффект, млн руб./год (медиана {np.median(total):.1f})")
-ax[0].set_xlabel("млн руб./год"); ax[0].set_ylabel("число сценариев")
-ax[1].hist(payback_years, bins=40, color="#2e7d32", alpha=0.85)
-ax[1].axvline(np.median(payback_years), color="k", ls="--", lw=1)
-ax[1].set_title(f"Окупаемость, лет (медиана {np.median(payback_years):.2f})")
-ax[1].set_xlabel("лет"); ax[1].set_ylabel("число сценариев")
-fig.suptitle("АКУСТИК-СЕТИ: 200 км магистралей Новороссийска, 900 узлов")
-fig.tight_layout()
-fig.savefig("aquaseti_economics.png", dpi=150)
-print("медиана эффекта %.1f млн руб./год; окупаемость %.2f года"
-      % (np.median(total), np.median(payback_years)))
+def poisson(lam):
+    # выборка Пуассона методом обратного преобразования (Кнут)
+    limit = math.exp(-lam)
+    k, prob = 0, 1.0
+    while True:
+        prob *= random.random()
+        if prob <= limit:
+            return k
+        k += 1
+
+
+totals = []
+paybacks = []
+for _ in range(N):
+    leaks_year = min(100, max(30, int(random.gauss(62, 10))))      # скрытых утечек/год
+    q_m3h = random.triangular(0.8, 2.4, 4.0)                        # средний дебит утечки, м3/ч
+    months_hidden = random.triangular(1.5, 4.0, 8.0)                # месяцев без системы
+    saved_m3 = leaks_year * q_m3h * 24 * 30.4 * months_hidden
+    water_money = saved_m3 * TARIFF / 1e6                           # млн руб./год
+    avaria = poisson(10) * random.triangular(300, 400, 600) * 1e3 / 1e6  # избегание аварий
+    total = water_money + avaria
+    totals.append(total)
+    paybacks.append(CAPEX / total)
+
+totals.sort(); paybacks.sort()
+med = lambda v: v[len(v) // 2]
+
+print("АКУСТИК-СЕТИ: Монте-Карло %d сценариев (200 км, %d узлов, капзатраты %.2f млн руб.)"
+      % (N, NODES, CAPEX))
+print("Эффект: медиана %.1f млн руб./год" % med(totals))
+print("Окупаемость: медиана %.2f года (%.0f мес.)" % (med(paybacks), med(paybacks) * 12))

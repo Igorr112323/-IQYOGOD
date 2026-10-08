@@ -4,6 +4,8 @@
 Модель: интеррогаторы (разовая продажа) + стельки (расходник, замена
 каждые 6 месяцев). Случайные величины: число оснащённых кабинетов,
 пациентов на кабинет, доля вовремя заменяемых стелек.
+Калибровка: выручка медиана 11,6 млн руб./год при 12 кабинетах,
+прибыль 3,3 млн руб./год, окупаемость 2,4 млн руб. — 8,7 месяца.
 """
 import random
 
@@ -19,16 +21,16 @@ profits = []
 payback = []
 for _ in range(N_SCEN):
     cabinets = int(random.triangular(8, 12, 16))
-    patients = int(random.triangular(220, 300, 360))
-    replace_rate = random.betavariate(8, 2)              # своевременная замена
+    patients = int(random.triangular(32, 50, 74))           # пациентов на кабинет/год
+    replace_rate = random.betavariate(8, 2)                 # своевременная замена
     device_rev = cabinets * INTERROGATOR
     insole_rev = cabinets * patients * 2 * INSOLE * replace_rate
     revenue = device_rev + insole_rev
-    cost = revenue * random.triangular(0.55, 0.62, 0.70)  # себестоимость + сопровождение
+    cost = revenue * random.triangular(0.65, 0.715, 0.78)   # себестоимость + сопровождение
     profit = revenue - cost
     revenues.append(revenue)
     profits.append(profit)
-    payback.append(START_COST / max(profit / 12, 1))
+    payback.append(min(START_COST / max(profit / 12, 1), 999.0))
 
 revenues.sort(); profits.sort(); payback.sort()
 

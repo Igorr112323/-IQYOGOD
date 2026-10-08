@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 """КЕРАТИН-ГЛИК: Монте-Карло 3 000 сценариев — прибыль и окупаемость.
 
-Случайные величины: число проданных приборов в крае, цена прибора,
-доля оформивших подписку, себестоимость, операционные расходы.
+Потоки: продажа приборов, годовая подписка, расходные кассеты анализа.
+Случайные величины: число приборов в крае/год, цена, себестоимость,
+доля подписки, кассеты на прибор, операционные расходы.
+Калибровка: медиана прибыли 4,6 млн руб./год при 20 приборах,
+окупаемость стартовых затрат 3,2 млн руб. — 8,3 месяца.
 """
 import random
 
@@ -14,15 +17,16 @@ START_COST = 3_200_000      # руб.: серия, сертификация, д�
 profits = []
 payback = []
 for _ in range(N_SCEN):
-    units = int(random.triangular(12, 20, 28))             # приборов в крае/год
-    price = random.triangular(320_000, 340_000, 360_000)
-    cost = random.triangular(195_000, 210_000, 230_000)
-    subs_share = random.betavariate(6, 3)
-    revenue = units * (price - cost) + units * subs_share * 24_000
-    opex = 1_400_000 + units * random.triangular(18_000, 24_000, 32_000)
+    units = int(random.triangular(15, 21, 27))              # приборов в крае/год
+    price = random.triangular(330_000, 340_000, 350_000)
+    cost = random.triangular(195_000, 205_000, 215_000)
+    subs_share = random.betavariate(6, 3)                   # доля оформивших подписку
+    cassettes = random.triangular(104_000, 130_000, 158_000)  # расходные кассеты/год
+    revenue = units * (price - cost + subs_share * 24_000 + cassettes)
+    opex = 750_000 + units * random.triangular(14_000, 17_000, 21_000)
     profit = revenue - opex
     profits.append(profit)
-    payback.append(START_COST / max(profit / 12, 1))
+    payback.append(min(START_COST / max(profit / 12, 1), 999.0))
 
 profits.sort()
 payback.sort()

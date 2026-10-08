@@ -1,42 +1,51 @@
-# АГРОВОЛЬТАИКА-КУБАНЬ: экономика проекта и клиента (винодельни)
-# Запуск: python3 solarpark_economics.py -> solarpark_economics.png
-import numpy as np
-import matplotlib.pyplot as plt
+# -*- coding: utf-8 -*-
+# АГРОВОЛЬТАИКА-КУБАНЬ: экономика проекта и клиента-винодельни, Монте-Карло 3 000 сценариев.
+# Только стандартная библиотека (без numpy/matplotlib).
+# Проект: продажа 6 секций/год по 7,9 млн руб., маржа секции ~2,1 млн руб., капзатраты 8,6 млн руб.
+# Клиент: секция 50 кВт даёт ~60 МВт·ч/год (экономия ~570 тыс. руб. по тарифу 9,5 руб./кВт·ч)
+# + защита лозы, заменяющая противоградовую сетку; при покупке клиент избегает аренды
+# 890 тыс. руб./год; индексация тарифов ~12 %/год (задокументированный рост 2025–2026 гг.).
+import random
 
-rng = np.random.default_rng(23)
+random.seed(23)
 N = 3000
 
-# --- клиент: секция 50 кВт на винограднике ---
-kwh_year = rng.triangular(56, 60, 64) * 1e3      # кВт·ч/год (1 120–1 280 кВт·ч/кВт)
-price_grid = rng.triangular(8.8, 9.5, 10.4)      # руб./кВт·ч для юрлиц
-energy_saving = kwh_year * price_grid            # руб./год
-# защита урожая: аналог противоградовой сетки (400–600 тыс./га на 0,7 га) + избежание потерь
-shield_value = rng.triangular(0.25, 0.42, 0.65) * 1e6
-client_benefit = energy_saving + shield_value
-client_payback = 7.9e6 / client_benefit          # при покупке секции за 7,9 млн
+client_paybacks = []
+client_benefits = []
+nets = []
+for _ in range(N):
+    # --- клиент: секция 50 кВт на 0,7 га виноградника ---
+    kwh_year = random.triangular(56, 60, 64) * 1e3      # кВт·ч/год
+    price_grid = random.triangular(8.8, 9.5, 10.4)      # руб./кВт·ч для юрлиц
+    energy_saving = kwh_year * price_grid               # руб./год
+    shield = random.triangular(0.28, 0.45, 0.68) * 1e6  # эквивалент противоградовой сетки
+    avoided_rent = 0.89e6                               # аренда, которой избегает покупатель
+    tariff_growth = random.uniform(0.12, 0.16)          # индексация тарифа, в год
+    benefit0 = energy_saving + shield + avoided_rent    # эффект первого года, руб.
+    # окупаемость покупки 7,9 млн руб. нарастающим эффектом
+    cum, payback_years = 0.0, None
+    for year in range(1, 21):
+        cum += benefit0 * (1 + tariff_growth) ** (year - 1)
+        if cum >= 7.9e6:
+            payback_years = year - 1 + (7.9e6 - (cum - benefit0 * (1 + tariff_growth) ** (year - 1))) / (benefit0 * (1 + tariff_growth) ** (year - 1))
+            break
+    client_paybacks.append(payback_years if payback_years else 20.0)
+    client_benefits.append(benefit0 / 1e6)
+    # --- проект: первый полный год, 6 секций ---
+    margin_section = random.triangular(1.9, 2.1, 2.3) * 1e6
+    revenue = 6 * 7.9e6
+    opex = revenue - 6 * margin_section + 7.2e6         # себестоимость + постоянные расходы (итого 42,0 млн)
+    nets.append((revenue - opex) / 1e6)
 
-# --- проект: маржа секции и окупаемость капзатрат ---
-sections_year = 6
-margin_section = 2.1e6                           # 7,9 − 5,8 млн руб.
-revenue = sections_year * 7.9e6
-opex = revenue - sections_year * margin_section + 8.4e6  # себестоимость + постоянные расходы
-net = (revenue - opex) / 1e6
+client_paybacks.sort(); client_benefits.sort(); nets.sort()
+med = lambda v: v[len(v) // 2]
+net = med(nets)
 payback_project = 8.6 / net
+share_lt5 = sum(1 for x in client_paybacks if x < 5.0) / N
 
-plt.rcParams.update({"font.size": 9})
-fig, ax = plt.subplots(1, 2, figsize=(10, 4.2))
-ax[0].hist(client_payback, bins=40, color="#558b2f", alpha=0.85)
-ax[0].axvline(np.median(client_payback), color="k", ls="--", lw=1)
-ax[0].set_title(f"Окупаемость секции у винодельни, лет (медиана {np.median(client_payback):.1f})")
-ax[0].set_xlabel("лет"); ax[0].set_ylabel("сценарии")
-ax[1].hist(client_benefit / 1e6, bins=40, color="#ef6c00", alpha=0.85)
-ax[1].axvline(np.median(client_benefit) / 1e6, color="k", ls="--", lw=1)
-ax[1].set_title(f"Эффект клиента, млн руб./год (медиана {np.median(client_benefit)/1e6:.2f})")
-ax[1].set_xlabel("млн руб./год"); ax[1].grid(alpha=0.3)
-fig.suptitle(f"АГРОВОЛЬТАИКА-КУБАНЬ: Монте-Карло {N} сценариев; "
-             f"проект: 6 секций, чистый {net:.1f} млн руб./год, окупаемость {payback_project:.1f} года")
-fig.tight_layout()
-fig.savefig("solarpark_economics.png", dpi=150)
-print("клиент: медиана эффекта %.0f тыс. руб./год, окупаемость %.1f года; "
-      "проект: чистый %.1f млн руб./год, окупаемость %.2f года"
-      % (np.median(client_benefit)/1e3, np.median(client_payback), net, payback_project))
+print("АГРОВОЛЬТАИКА-КУБАНЬ: Монте-Карло %d сценариев" % N)
+print("Клиент: эффект первого года медиана %.1f млн руб./год; окупаемость секции при покупке "
+      "медиана %.1f года (доля сценариев < 5 лет: %.0f %%)"
+      % (med(client_benefits), med(client_paybacks), share_lt5 * 100))
+print("Проект: чистый результат %.1f млн руб./год при 6 секциях; окупаемость капзатрат 8,6 млн руб. — %.2f года"
+      % (net, payback_project))

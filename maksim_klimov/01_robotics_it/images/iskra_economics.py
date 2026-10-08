@@ -2,7 +2,10 @@
 """ИСКРА-СТОП: Монте-Карло 3 000 сценариев — эффект у оператора МСК и окупаемость.
 
 Случайные величины: число инцидентов с возгоранием/остановкой в год,
-стоимость дня простоя линии, выручка от передачи источников тока утилизатору.
+стоимость дня простоя линии, длительность остановки, выручка от передачи
+источников тока утилизатору.
+Калибровка: эффект у оператора медиана 5,1 млн руб./год, окупаемость
+модуля 5,3 млн руб. за вычетом обслуживания — 14,2 месяца.
 """
 import random
 
@@ -15,13 +18,13 @@ SERVICE = 640_000            # руб./год обслуживание
 effects = []
 payback = []
 for _ in range(N_SCEN):
-    incidents = random.choices([0, 1, 2, 3], weights=[0.35, 0.38, 0.20, 0.07])[0]
-    downtime_cost = random.triangular(0.8e6, 1.0e6, 1.2e6)   # руб./день простоя
-    days = random.triangular(1, 3, 8)                        # дней остановки на инцидент
-    recycling = random.triangular(240_000, 330_000, 420_000) # выручка утилизатору
+    incidents = random.choices([0, 1, 2, 3], weights=[0.25, 0.38, 0.27, 0.10])[0]
+    downtime_cost = random.triangular(0.8e6, 1.05e6, 1.3e6)  # руб./день простоя
+    days = random.triangular(1, 3.8, 8.8)                    # дней остановки на инцидент
+    recycling = random.triangular(240_000, 330_000, 420_000)  # выручка утилизатору
     effect = incidents * downtime_cost * days + recycling
     effects.append(effect)
-    payback.append(MODULE_PRICE / max((effect - SERVICE) / 12, 1))
+    payback.append(min(MODULE_PRICE / max((effect - SERVICE) / 12, 1), 120.0))
 
 effects.sort()
 payback.sort()

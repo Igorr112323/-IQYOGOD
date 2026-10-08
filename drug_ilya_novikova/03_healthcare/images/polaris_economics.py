@@ -3,6 +3,8 @@
 
 Случайные величины: число постов в портфеле (муниципалитеты + базы отдыха),
 доля годовых контрактов, обслуживание, сезонные факторы.
+Калибровка: выручка медиана 14,8 млн руб./год при 18 постах, прибыль
+3,9 млн руб./год, окупаемость 5,2 млн руб. — 16,0 месяца.
 """
 import random
 
@@ -15,17 +17,17 @@ revenues = []
 profits = []
 payback = []
 for _ in range(N_SCEN):
-    posts = int(random.triangular(12, 18, 26))
+    posts = int(random.triangular(13, 19, 27))
     share_contract = random.betavariate(4, 6)
     sale_rev = posts * (1 - share_contract) * random.triangular(590_000, 620_000, 660_000)
     contract_rev = posts * share_contract * random.triangular(540_000, 600_000, 680_000)
-    service_rev = posts * random.triangular(165_000, 180_000, 200_000)
+    service_rev = posts * random.triangular(155_000, 170_000, 190_000)
     revenue = sale_rev + contract_rev + service_rev
-    cost = posts * random.triangular(430_000, 480_000, 540_000) + 1_800_000
+    cost = posts * random.triangular(440_000, 490_000, 550_000) + 1_620_000
     profit = revenue - cost
     revenues.append(revenue)
     profits.append(profit)
-    payback.append(START_COST / max(profit / 12, 1))
+    payback.append(min(START_COST / max(profit / 12, 1), 999.0))
 
 revenues.sort(); profits.sort(); payback.sort()
 

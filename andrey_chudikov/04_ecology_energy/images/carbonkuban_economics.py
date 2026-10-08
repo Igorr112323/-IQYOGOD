@@ -1,35 +1,33 @@
-# КАРБОКУБАНЬ: экономика модуля 300 кг/ч, Монте-Карло 2000 сценариев
-# Запуск: python3 carbonkuban_economics.py -> carbonkuban_economics.png
-import numpy as np
-import matplotlib.pyplot as plt
+# -*- coding: utf-8 -*-
+# КАРБОКУБАНЬ: экономика модуля пиролиза 300 кг/ч, Монте-Карло 3 000 сценариев.
+# Только стандартная библиотека (без numpy/matplotlib).
+# Двойная монетизация: биоуголь-мелиорант + углеродные единицы (1,74 т CO2-экв./т).
+# Исходные данные из заявки (п. 11): сырьё — лузга 1 200 руб./т × 4 900 т = 5,9 млн руб./год;
+# полная стоимость модуля 12,4 млн руб. (остаточный CAPEX после макета — 1,8 млн руб.);
+# базовые цены 9 500 руб./т биоугля и 700 руб./т углеродной единицы.
+import random
 
-rng = np.random.default_rng(11)
-N = 2000
-OUTPUT = 1600.0        # т биоугля/год
-CHAR_COST = 4600.0     # себестоимость, руб./т
-price_char = rng.triangular(8500, 9500, 11000, N)   # мелиорант, руб./т
-price_co2 = rng.triangular(500, 700, 1000, N)       # руб./т CO2-экв.
-co2_per_t = 1.74
+random.seed(11)
+N = 3000
+OUTPUT = 1600.0         # т биоугля/год
+RAW_COST = 1200.0 * 4900.0      # руб./год, лузга
+OPEX_OTHER = 4.6e6      # руб./год: энергия пиролиза, персонал, логистика, ТО
+CO2_PER_T = 1.74        # т CO2-экв./т биоугля
+CAPEX_FULL = 12.4       # млн руб. полная стоимость модуля
 
-revenue = OUTPUT * price_char + OUTPUT * co2_per_t * price_co2
-costs = OUTPUT * CHAR_COST + 5.9e6  # сырьё + постоянные
-margin = (revenue - costs) / 1e6    # млн руб./год
-capex = 1.8  # остаточный CAPEX, млн руб.
-payback = capex / margin
+margins = []
+paybacks = []
+for _ in range(N):
+    price_char = random.triangular(8500, 9500, 11000)   # мелиорант, руб./т
+    price_co2 = random.triangular(500, 700, 1000)       # руб./т CO2-экв.
+    revenue = OUTPUT * price_char + OUTPUT * CO2_PER_T * price_co2
+    margin = (revenue - RAW_COST - OPEX_OTHER) / 1e6    # млн руб./год
+    margins.append(margin)
+    paybacks.append(CAPEX_FULL / margin)
 
-plt.rcParams.update({"font.size": 9})
-fig, ax = plt.subplots(1, 2, figsize=(10, 4.2))
-ax[0].hist(margin, bins=40, color="#2e7d32", alpha=0.85)
-ax[0].axvline(np.median(margin), color="k", ls="--", lw=1)
-ax[0].set_title(f"Маржа модуля, млн руб./год (медиана {np.median(margin):.1f})")
-ax[0].set_xlabel("млн руб./год"); ax[0].set_ylabel("число сценариев")
+margins.sort(); paybacks.sort()
+med = lambda v: v[len(v) // 2]
 
-ax[1].hist(payback, bins=40, color="#15417d", alpha=0.85)
-ax[1].axvline(np.median(payback), color="k", ls="--", lw=1)
-ax[1].set_title(f"Срок окупаемости, лет (медиана {np.median(payback):.2f})")
-ax[1].set_xlabel("лет"); ax[1].set_ylabel("число сценариев")
-fig.suptitle("КАРБОКУБАНЬ: двойная монетизация биоугля из лузги (мелиорант + CO2-единицы)")
-fig.tight_layout()
-fig.savefig("carbonkuban_economics.png", dpi=150)
-print("медиана маржи: %.2f млн руб./год; окупаемость %.2f года"
-      % (np.median(margin), np.median(payback)))
+print("КАРБОКУБАНЬ: Монте-Карло %d сценариев (модуль 300 кг/ч, %d т биоугля/год)" % (N, int(OUTPUT)))
+print("Маржа модуля: медиана %.1f млн руб./год" % med(margins))
+print("Окупаемость полной стоимости модуля 12,4 млн руб.: медиана %.2f года" % med(paybacks))
