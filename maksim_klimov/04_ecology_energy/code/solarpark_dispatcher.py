@@ -1,29 +1,28 @@
-# СОЛНЦЕПАРК: энергодиспетчер пикового бритья (фрагмент рабочего ПО)
-# Каждый интервал 15 мин решает: солнце -> отель / накопитель / зарядки.
+# АГРОВОЛЬТАИКА-КУБАНЬ: мониторинг секции над виноградником (фрагмент рабочего ПО)
+# Телеметрия: выработка, температура под пологом и на открытом контроле, доступность.
 
-PEAK_HOURS = range(19, 24)          # пиковая зона тарифа
-SOC_MIN, SOC_MAX = 0.15, 0.95       # границы накопителя
+HEAT_ALERT_C = 35.0        # порог жары для агроотчёта
+SHADE_TARGET_C = 4.0       # ожидаемое снижение температуры под пологом, °С
 
-def dispatch(hour, solar_kw, hotel_kw, ev_request_kw, soc, cap_kwh=40.0):
-    """Возвращает потоки: в отель, в накопитель (+заряд/−разряд), в зарядки."""
-    to_hotel = min(solar_kw, hotel_kw)
-    left = solar_kw - to_hotel
-    to_ev = 0.0
-    to_batt = 0.0
-    if hour in PEAK_HOURS and soc > SOC_MIN:
-        # вечер: накопитель кормит отель вместо сети
-        discharge = min((soc - SOC_MIN) * cap_kwh * 4, hotel_kw - to_hotel)
-        to_hotel += max(discharge, 0.0)
-    if left > 0:
-        to_ev = min(ev_request_kw, left)
-        left -= to_ev
-        if left > 0 and soc < SOC_MAX:
-            to_batt = left
-    soc_new = soc + (to_batt - max(0.0, -(solar_kw - hotel_kw - to_ev))) / cap_kwh * 0.25
-    return {"hotel_kw": round(to_hotel, 2), "ev_kw": round(to_ev, 2),
-            "batt_kw": round(to_batt, 2), "soc": round(min(max(soc_new, 0), 1), 3)}
+def summarize_interval(solar_kw, plant_load_kw, t_canopy, t_control):
+    """Один интервал 15 мин: потоки энергии и температурный статус."""
+    to_plant = min(solar_kw, plant_load_kw)
+    to_grid = max(solar_kw - to_plant, 0.0)
+    delta_t = t_control - t_canopy
+    heat_status = "норма"
+    if t_control >= HEAT_ALERT_C:
+        heat_status = "защита активна" if delta_t >= SHADE_TARGET_C else "тень ниже расчётной"
+    return {"to_plant_kw": round(to_plant, 2), "to_grid_kw": round(to_grid, 2),
+            "delta_t_c": round(delta_t, 1), "status": heat_status}
+
+def hail_report(damage_covered_pct, damage_control_pct):
+    """Сравнение повреждений после градового события."""
+    shield = 100.0 * (1 - damage_covered_pct / damage_control_pct) if damage_control_pct else 0.0
+    return {"покрытие_панелями": damage_covered_pct, "контроль": damage_control_pct,
+            "эффективность_щита": round(shield, 1)}
 
 if __name__ == "__main__":
-    print("день, 13:00, солнце 18 кВт:", dispatch(13, 18, 9, 11, soc=0.4))
-    print("пик, 20:15, солнца нет:  ", dispatch(20, 0, 24, 7, soc=0.8))
-    # Пилот: срезано 38 кВт вечернего пика отеля (июль–август 2026).
+    print("жара, 13:00:", summarize_interval(8.2, 6.5, 31.4, 35.9))
+    print("утро, 8:00: ", summarize_interval(2.1, 4.0, 22.0, 23.1))
+    print("град 12.06.2026:", hail_report(0.4, 17.0))
+    # Прототип 10 кВт: сезон 2026 г., 6,1 МВт·ч, доступность 97,8 %.

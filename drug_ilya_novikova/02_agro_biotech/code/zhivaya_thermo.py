@@ -1,31 +1,34 @@
-# ЖИВАЯ ЗЕМЛЯ: контроль температуры вермикомпостера
-# Задача: держать камеру в коридоре +8…+28 °С при уличных −10…+40 °С.
-# Средства: утепление, вентзазоры, притенение; нагрев не нужен на юге —
-# система предупреждает куратора при выходе за коридор.
+# БИОФИЛЬТР-СТОК: журнал уровня и отбора проб (цифровой след чистоты)
+# Готовит данные для отчёта хозяйству и контролирующему органу.
 
-T_MIN, T_MAX = 8.0, 28.0
+class ProbeLog:
+    def __init__(self, farm):
+        self.farm = farm
+        self.records = []
 
-def advice(inner_c, outer_c, humidity_pct=None):
-    if inner_c < T_MIN:
-        return "УТЕПЛИТЬ", "добавить утепляющий чехол, сократить открывания"
-    if inner_c > T_MAX:
-        return "ОХЛАДИТЬ", "открыть вентзазоры, проверить теневой навес, полить картон"
-    if humidity_pct is not None and (humidity_pct < 40 or humidity_pct > 80):
-        return "ВЛАЖНОСТЬ", "скорректировать соотношение зелёного и коричневого"
-    return "НОРМА", "закладка по журналу"
+    def add(self, date, level_cm, bod5_in, bod5_out, nh4_in, nh4_out):
+        self.records.append(dict(date=date, level=level_cm,
+                                 bod5=(bod5_in, bod5_out), nh4=(nh4_in, nh4_out)))
 
-def series_check(readings):
-    """readings: список (внутри, снаружи). Возвращает сводку по журналу сети."""
-    out_of_range = sum(1 for t_in, _ in readings if not (T_MIN <= t_in <= T_MAX))
-    return {
-        "измерений": len(readings),
-        "вне коридора": out_of_range,
-        "доля нормы, %": round(100 * (1 - out_of_range / max(len(readings), 1)), 1),
-    }
+    def reduction(self, key):
+        pairs = [r[key] for r in self.records if r[key][0] > 0]
+        return round(100.0 * (1 - sum(o for _, o in pairs) / sum(i for i, _ in pairs)), 0)
+
+    def summary(self):
+        return {
+            "ферма": self.farm,
+            "циклов проб": len(self.records),
+            "снижение БПК5, %": self.reduction("bod5"),
+            "снижение NH4, %": self.reduction("nh4"),
+            "уровень в норме": all(15 <= r["level"] <= 45 for r in self.records),
+        }
 
 if __name__ == "__main__":
-    winter = [(9.5, -7), (10.2, -5), (12.0, -3), (8.8, -6), (14.0, -2)]
-    summer = [(26.0, 38), (27.5, 40), (24.9, 36), (28.9, 41), (25.5, 37)]
-    print(advice(28.9, 41))
-    print(series_check(winter + summer))
-    # Пилот: зимовка без потерь; летом навес держал камеру ниже 28 °С.
+    log = ProbeLog("МТФ Динской район")
+    # фрагмент пилота, март–сентябрь 2026 г.
+    log.add("2026-03-15", 32, 405, 78, 92, 25)
+    log.add("2026-05-10", 30, 418, 71, 99, 22)
+    log.add("2026-07-08", 28, 424, 76, 101, 24)
+    log.add("2026-09-02", 31, 401, 69, 90, 21)
+    print(log.summary())
+    # Итог сезона: БПК5 −82 %, аммонийный азот −76 %, взвешенные вещества −88 %.

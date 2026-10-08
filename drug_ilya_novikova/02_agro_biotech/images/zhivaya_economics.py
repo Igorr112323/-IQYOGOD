@@ -1,31 +1,36 @@
-# ЖИВАЯ ЗЕМЛЯ: динамика пилота и экономика модуля
+# БИОФИЛЬТР-СТОК: Монте-Карло 2 000 сценариев окупаемости у хозяйства
 # Запуск: python3 zhivaya_economics.py -> zhivaya_economics.png
 import numpy as np
 import matplotlib.pyplot as plt
 
-months = ["02", "03", "04", "05", "06", "07", "08"]
-processed_kg = np.array([140, 165, 190, 215, 225, 240, 245])   # данные журнала
-humus_kg = np.array([20, 28, 40, 48, 62, 80, 102])             # накопленный сбор
+rng = np.random.default_rng(31)
+N = 2000
+MODULE_COST = 480_000            # руб., модуль под ключ для фермы 100–150 голов
 
-CAPEX = 34_000.0
-saving = 4.8e3          # вывоз органики, руб./год
-humus_money = 21.6e3    # применение/реализация биогумуса, руб./год
-payback = CAPEX / (saving + humus_money)
+# предотвращаемые потери: штрафы ст. 8.14 КоАП, иски о вреде водному объекту, платежи НВОС
+fine = rng.choice([0, 60_000, 100_000, 150_000], size=N, p=[0.45, 0.25, 0.2, 0.1])
+claim = rng.triangular(0, 350_000, 2_400_000) * rng.random(N) * 0.35   # риск иска в год
+nvos = rng.triangular(30_000, 60_000, 110_000)                          # платежи НВОС
+annual_benefit = fine + claim + nvos
+
+payback_months = MODULE_COST / (annual_benefit / 12.0)
+payback_months = np.clip(payback_months, 1, 60)
+
+# проект: 8 модулей в первый полный год
+proj_net = (8 * (480_000 - 340_000) + 8 * 12_000 * 12 - 1_050_000) / 1e6
 
 plt.rcParams.update({"font.size": 9})
-fig, ax = plt.subplots(1, 2, figsize=(10, 4.0))
-ax[0].bar(months, processed_kg, color="#6d4c41", alpha=0.85, label="переработано, кг/мес")
-ax[0].plot(months, humus_kg, "o-", color="#2e7d32", label="биогумус накопленно, кг")
-ax[0].set_title("Пилот: 1,42 т органики и 380 кг биогумуса за 7 мес")
-ax[0].legend(fontsize=8); ax[0].set_ylabel("кг")
-
-yrs = np.linspace(0, 3, 31)
-cum = (saving + humus_money) * yrs - CAPEX
-ax[1].plot(yrs, cum / 1e3, color="#1565c0", lw=2)
-ax[1].axhline(0, color="gray", lw=0.8)
-ax[1].set_title(f"Окупаемость модуля: {payback*12:.0f} мес")
-ax[1].set_xlabel("лет"); ax[1].set_ylabel("тыс. руб."); ax[1].grid(alpha=0.3)
-fig.suptitle("ЖИВАЯ ЗЕМЛЯ: школа № 83, № 100 и двор-пилот, 2026")
+fig, ax = plt.subplots(1, 2, figsize=(10, 4.2))
+ax[0].hist(payback_months, bins=40, color="#2e7d32", alpha=0.85)
+ax[0].axvline(np.median(payback_months), color="k", ls="--", lw=1)
+ax[0].set_title(f"Окупаемость модуля у фермы, мес. (медиана {np.median(payback_months):.0f})")
+ax[0].set_xlabel("месяцев"); ax[0].set_ylabel("сценарии")
+share = 100 * np.mean(payback_months <= 18)
+ax[1].bar(["чистый результат", "капзатраты"], [proj_net, 0.65], color="#1565c0", alpha=0.85)
+ax[1].set_title(f"Проект: {proj_net:.1f} млн руб./год при 8 модулях ({share:.0f}% сценариев ≤ 18 мес.)")
+ax[1].set_ylabel("млн руб.")
+fig.suptitle("БИОФИЛЬТР-СТОК: Монте-Карло 2 000 сценариев, ферма на 120 голов")
 fig.tight_layout()
 fig.savefig("zhivaya_economics.png", dpi=150)
-print(f"окупаемость модуля: {payback*12:.1f} мес")
+print("медиана окупаемости у хозяйства: %.0f мес.; доля <=18 мес.: %.0f%%; "
+      "чистый результат проекта: %.2f млн руб./год" % (np.median(payback_months), share, proj_net))

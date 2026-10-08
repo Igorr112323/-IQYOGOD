@@ -1,10 +1,10 @@
-# БИОЩИТ-КУБАНЬ: экономика хозяйства, Монте-Карло 1000 псевдосезонов
+# БИОЩИТ-КУБАНЬ: экономика хозяйства, Монте-Карло 3000 псевдосезонов
 # Запуск: python3 bioshchit_economics.py -> bioshchit_economics.png
 import numpy as np
 import matplotlib.pyplot as plt
 
 rng = np.random.default_rng(7)
-N = 1000
+N = 3000
 AREA = 1000.0           # га
 PRICE_WHEAT = 13500.0   # руб./т
 YIELD = 48.0            # ц/га базовая

@@ -1,36 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="820" height="440" viewBox="0 0 820 440" font-family="DejaVu Sans, Arial" font-size="12">
-  <rect width="820" height="440" fill="#ffffff"/>
-  <text x="410" y="24" text-anchor="middle" font-size="15" font-weight="bold">ЖИВАЯ ЗЕМЛЯ: вермикомпостер (разрез)</text>
-  <!-- навес -->
-  <polygon points="120,70 420,50 420,66 120,86" fill="#c8e6c9" stroke="#2e7d32"/>
-  <text x="270" y="40" text-anchor="middle">теневой навес с вентиляцией</text>
-  <!-- корпус -->
-  <rect x="150" y="110" width="240" height="220" rx="10" fill="#efebe9" stroke="#5d4037" stroke-width="3"/>
-  <rect x="165" y="125" width="210" height="80" rx="6" fill="#fff3e0" stroke="#e65100"/>
-  <text x="270" y="155" text-anchor="middle">приёмная камера: органика + картон/лист</text>
-  <text x="270" y="173" text-anchor="middle">закладка 15 мин/нед</text>
-  <rect x="165" y="215" width="210" height="80" rx="6" fill="#e8f5e9" stroke="#2e7d32"/>
-  <text x="270" y="245" text-anchor="middle">камера дозревания, 60–90 дней</text>
-  <text x="270" y="263" text-anchor="middle">E. fetida 18–24 тыс/м³</text>
-  <rect x="165" y="303" width="210" height="18" fill="#d7ccc8" stroke="#5d4037"/>
-  <text x="270" y="317" text-anchor="middle">поддон вермичая</text>
-  <!-- утепление -->
-  <rect x="140" y="100" width="10" height="240" fill="#bcaaa4"/>
-  <rect x="390" y="100" width="10" height="240" fill="#bcaaa4"/>
-  <text x="430" y="200">двойные стенки + утеплитель</text>
-  <text x="430" y="218">внутри +8…+28 °С круглый год</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="440" viewBox="0 0 860 440" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="860" height="440" fill="#ffffff"/>
+  <text x="430" y="24" text-anchor="middle" font-size="15" font-weight="bold">БИОФИЛЬТР-СТОК: типовая секция в разрезе (профиль)</text>
+  <!-- корпус секции -->
+  <rect x="80" y="150" width="420" height="180" fill="#efebe9" stroke="#5d4037" stroke-width="3"/>
+  <!-- гидроизоляция -->
+  <rect x="80" y="322" width="420" height="8" fill="#37474f"/>
+  <text x="90" y="345">гидроизоляция плёночная</text>
+  <!-- субстрат -->
+  <rect x="92" y="230" width="396" height="90" fill="#d7ccc8" stroke="#8d6e63"/>
+  <text x="290" y="285" text-anchor="middle">субстрат: песок + гравий 0,2–20 мм, глубина секции 0,5 м</text>
+  <!-- вода -->
+  <rect x="92" y="212" width="396" height="18" fill="#b3e5fc" opacity="0.8"/>
+  <text x="290" y="226" text-anchor="middle" fill="#01579b">сток: самотёк, удержание 8–10 суток</text>
+  <!-- растения -->
+  <g stroke="#2e7d32" stroke-width="3" fill="none">
+    <path d="M150 230 q-4 -70 -14 -110 M150 230 q2 -75 6 -120 M150 230 q8 -60 20 -100"/>
+    <path d="M250 230 q-4 -70 -14 -110 M250 230 q2 -75 6 -120 M250 230 q8 -60 20 -100"/>
+    <path d="M350 230 q-4 -70 -14 -110 M350 230 q2 -75 6 -120 M350 230 q8 -60 20 -100"/>
+    <path d="M440 230 q-4 -70 -14 -110 M440 230 q2 -75 6 -120 M440 230 q8 -60 20 -100"/>
+  </g>
+  <!-- корни -->
+  <g stroke="#8d6e63" stroke-width="2" fill="none">
+    <path d="M150 230 q-8 30 -20 50 M150 230 q4 34 -2 60 M150 230 q12 26 24 44"/>
+    <path d="M250 230 q-8 30 -20 50 M250 230 q4 34 -2 60 M250 230 q12 26 24 44"/>
+    <path d="M350 230 q-8 30 -20 50 M350 230 q4 34 -2 60 M350 230 q12 26 24 44"/>
+  </g>
+  <text x="290" y="105" text-anchor="middle" fill="#1b5e20">тростник / рогоз: кислород в зону корней, плёнка микроорганизмов</text>
+  <!-- вход и выход -->
+  <line x1="40" y1="185" x2="92" y2="185" stroke="#0288d1" stroke-width="4"/>
+  <text x="20" y="175" fill="#0288d1">вход</text>
+  <line x1="488" y1="200" x2="560" y2="200" stroke="#00acc1" stroke-width="4"/>
+  <text x="505" y="190" fill="#006064">выход</text>
   <!-- датчик -->
-  <rect x="330" y="86" width="44" height="20" rx="5" fill="#fff59d" stroke="#f57f17"/>
-  <text x="430" y="100">датчик температуры -> журнал сети</text>
+  <rect x="452" y="150" width="30" height="20" rx="4" fill="#fff59d" stroke="#f57f17"/>
+  <text x="505" y="165">датчик уровня → журнал проб</text>
   <!-- итоги справа -->
-  <rect x="500" y="120" width="280" height="210" rx="10" fill="#f1f8e9" stroke="#33691e"/>
-  <text x="640" y="148" text-anchor="middle" font-weight="bold">результаты пилота (6 мес)</text>
-  <text x="520" y="176">· органики переработано: 1,42 т</text>
-  <text x="520" y="198">· биогумуса получено: 380 кг</text>
-  <text x="520" y="220">· зимовка при −7 °С: без потерь</text>
-  <text x="520" y="242">· всхожесть газона: 89 % против 72 %</text>
-  <text x="520" y="264">· жалобы на запах: 0</text>
-  <text x="520" y="286">· курс прошли 96 учеников</text>
-  <text x="520" y="312" font-style="italic">обслуживание — 15 минут в неделю</text>
-  <text x="410" y="415" text-anchor="middle" fill="#555">Корпус из переработанного пластика; себестоимость 34 тыс. руб., окупаемость 14 месяцев.</text>
+  <rect x="560" y="220" width="280" height="160" rx="10" fill="#f1f8e9" stroke="#33691e"/>
+  <text x="700" y="248" text-anchor="middle" font-weight="bold">пилот 24 м², сезон 2026 г.</text>
+  <text x="580" y="276">· БПК₅: −82 %</text>
+  <text x="580" y="298">· аммонийный азот: −76 %</text>
+  <text x="580" y="320">· взвешенные вещества: −88 %</text>
+  <text x="580" y="342">· монтаж секций: 5 дней, без техники</text>
+  <text x="580" y="364">· модуль под ключ: 480 тыс. руб.</text>
 </svg>
