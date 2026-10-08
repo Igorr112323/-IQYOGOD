@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="430" viewBox="0 0 880 430" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="880" height="430" fill="#ffffff"/>
+  <text x="440" y="24" text-anchor="middle" font-size="15" font-weight="bold">КПЭ-панель министерства «МЕДКАДР-23»</text>
+  <!-- панель -->
+  <rect x="60" y="60" width="760" height="320" rx="12" fill="#eceff1" stroke="#455a64" stroke-width="2"/>
+  <!-- КПЭ карточки -->
+  <g>
+    <rect x="90" y="90" width="220" height="90" rx="8" fill="#e3f2fd" stroke="#0d47a1"/>
+    <text x="200" y="118" text-anchor="middle" font-weight="bold">Точность прогноза</text>
+    <text x="200" y="150" text-anchor="middle" font-size="22">86 %</text>
+    <text x="200" y="168" text-anchor="middle" font-size="10">план против факта вакансий</text>
+  </g>
+  <g>
+    <rect x="330" y="90" width="220" height="90" rx="8" fill="#e8f5e9" stroke="#2e7d32"/>
+    <text x="440" y="118" text-anchor="middle" font-weight="bold">Закрытие дефицита</text>
+    <text x="440" y="150" text-anchor="middle" font-size="22">54 % → 71 %</text>
+    <text x="440" y="168" text-anchor="middle" font-size="10">оптимизация целевого набора</text>
+  </g>
+  <g>
+    <rect x="570" y="90" width="220" height="90" rx="8" fill="#fff3e0" stroke="#ef6c00"/>
+    <text x="680" y="118" text-anchor="middle" font-weight="bold">Отклонения видны</text>
+    <text x="680" y="150" text-anchor="middle" font-size="22">за 9 дней</text>
+    <text x="680" y="168" text-anchor="middle" font-size="10">вместо квартального отчёта</text>
+  </g>
+  <!-- график план/факт -->
+  <rect x="90" y="210" width="460" height="140" rx="8" fill="#ffffff" stroke="#455a64"/>
+  <polyline points="110,320 180,300 250,305 320,270 390,260 460,240 530,235" fill="none" stroke="#b71c1c" stroke-width="2"/>
+  <polyline points="110,325 180,308 250,296 320,278 390,268 460,252 530,248" fill="none" stroke="#0d47a1" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="320" y="232" text-anchor="middle" font-size="11">план (пунктир) против факта найма по месяцам</text>
+  <!-- скрытые дефициты -->
+  <rect x="570" y="210" width="220" height="140" rx="8" fill="#ffebee" stroke="#b71c1c"/>
+  <text x="680" y="238" text-anchor="middle" font-weight="bold">Скрытые дефициты</text>
+  <text x="680" y="272" text-anchor="middle" font-size="26">9 должностей</text>
+  <text x="680" y="296" text-anchor="middle" font-size="10">совместительство выше норматива —</text>
+  <text x="680" y="310" text-anchor="middle" font-size="10">не видны в штатном расписании</text>
+  <text x="440" y="405" text-anchor="middle">данные обезличены · сверка ежемесячно · выгрузка в министерство</text>
+</svg>

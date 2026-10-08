@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="440" viewBox="0 0 860 440" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="860" height="440" fill="#ffffff"/>
+  <text x="430" y="24" text-anchor="middle" font-size="15" font-weight="bold">Устройство «ТЕРМОСТОПА-32»</text>
+  <!-- контур стопы с сеткой датчиков -->
+  <path d="M180 90 q70 -18 110 30 q36 44 30 120 q-6 90 -30 140 q-30 56 -90 40 q-52 -16 -58 -80 q-8 -120 4 -180 q10 -56 34 -70z"
+        fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <g fill="#66bb6a" stroke="#1b5e20">
+    <circle cx="200" cy="120" r="5"/><circle cx="240" cy="118" r="5"/><circle cx="270" cy="132" r="5"/>
+    <circle cx="188" cy="160" r="5"/><circle cx="228" cy="158" r="5"/><circle cx="264" cy="170" r="5"/>
+    <circle cx="184" cy="200" r="5"/><circle cx="224" cy="200" r="5"/><circle cx="260" cy="210" r="5"/>
+    <circle cx="186" cy="240" r="5"/><circle cx="226" cy="242" r="5"/><circle cx="258" cy="252" r="5"/>
+    <circle cx="192" cy="280" r="5"/><circle cx="230" cy="284" r="5"/><circle cx="256" cy="294" r="5"/>
+    <circle cx="204" cy="320" r="5"/><circle cx="238" cy="326" r="5"/>
+  </g>
+  <text x="218" y="400" text-anchor="middle">18 из 32 датчиков (левая стопа)</text>
+  <text x="218" y="418" text-anchor="middle">шаг сетки 18×26 мм, толщина стельки 2,1 мм</text>
+  <!-- контроллер -->
+  <rect x="400" y="120" width="200" height="120" rx="10" fill="#e3f2fd" stroke="#0d47a1" stroke-width="2"/>
+  <text x="500" y="150" text-anchor="middle" font-weight="bold">Контроллер</text>
+  <text x="500" y="172" text-anchor="middle">нормализация на температуру пола</text>
+  <text x="500" y="190" text-anchor="middle">попарная асимметрия 16 зон</text>
+  <text x="500" y="208" text-anchor="middle">порог 2,0 °С, повтор измерения</text>
+  <text x="500" y="226" text-anchor="middle">аккумулятор 1 200 мА·ч</text>
+  <path d="M300 200 L400 180" stroke="#555" stroke-width="2"/>
+  <!-- МИС -->
+  <rect x="660" y="130" width="170" height="100" rx="10" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+  <text x="745" y="160" text-anchor="middle" font-weight="bold">МИС поликлиники</text>
+  <text x="745" y="182" text-anchor="middle">карта, индекс асимметрии,</text>
+  <text x="745" y="200" text-anchor="middle">категория наблюдения</text>
+  <path d="M600 180 L660 180" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#555"/>
+    </marker>
+  </defs>
+  <text x="560" y="300" text-anchor="middle">измерение 60 с · масса 340 г · проводное подключение · без смартфона</text>
+  <text x="430" y="340" text-anchor="middle">40 пациентов в смену на устройство; результат в карту — сразу</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="430" viewBox="0 0 860 430" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="860" height="430" fill="#ffffff"/>
+  <text x="430" y="24" text-anchor="middle" font-size="15" font-weight="bold">Датчик «ЖИВОЙ УЛЕЙ» в улье</text>
+  <!-- улей -->
+  <rect x="90" y="120" width="280" height="240" fill="#fff8e1" stroke="#ef6c00" stroke-width="3"/>
+  <rect x="120" y="150" width="220" height="40" fill="#ffe082" stroke="#ef6c00"/>
+  <rect x="120" y="200" width="220" height="40" fill="#ffe082" stroke="#ef6c00"/>
+  <rect x="120" y="250" width="220" height="40" fill="#ffe082" stroke="#ef6c00"/>
+  <circle cx="230" cy="330" r="10" fill="#6d4c41"/>
+  <text x="230" y="318" text-anchor="middle">леток</text>
+  <!-- датчик -->
+  <rect x="200" y="205" width="60" height="30" rx="6" fill="#ffca28" stroke="#ef6c00" stroke-width="2"/>
+  <circle cx="215" cy="220" r="6" fill="#37474f"/>
+  <text x="230" y="252" text-anchor="middle" font-size="11">датчик: микрофон + батарея 9 мес.</text>
+  <!-- волны гула -->
+  <g stroke="#2e7d32" fill="none" stroke-width="1.5" opacity="0.7">
+    <path d="M262 210 q14 -10 28 0 q14 10 28 0"/>
+    <path d="M262 225 q14 -10 28 0 q14 10 28 0"/>
+  </g>
+  <!-- сервер -->
+  <rect x="480" y="110" width="320" height="150" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="640" y="140" text-anchor="middle" font-weight="bold">Сервер пасеки</text>
+  <text x="640" y="164" text-anchor="middle">состояние семьи: здоровая / стресс / роение / ослабление</text>
+  <text x="640" y="182" text-anchor="middle">сверка с реестром обработок и ветром</text>
+  <text x="640" y="200" text-anchor="middle">журнал-протокол по часам</text>
+  <text x="640" y="218" text-anchor="middle">оповещение пасечника</text>
+  <text x="640" y="236" text-anchor="middle">открытый формат для юристов и ветслужб</text>
+  <path d="M340 220 L480 180" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#555"/>
+    </marker>
+  </defs>
+  <!-- предупреждение -->
+  <rect x="480" y="290" width="320" height="80" rx="10" fill="#ffebee" stroke="#b71c1c" stroke-width="2"/>
+  <text x="640" y="318" text-anchor="middle" font-weight="bold">Предупреждение пасечнику</text>
+  <text x="640" y="340" text-anchor="middle">«Завтра в 4:00 обработка в 1,2 км по ветру —</text>
+  <text x="640" y="356" text-anchor="middle">ограничить вылет пчёл»</text>
+  <path d="M640 260 L640 290" stroke="#b71c1c" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="230" y="395" text-anchor="middle">один датчик 19 тыс. руб. · звук не передаётся, уходит событие</text>
+</svg>

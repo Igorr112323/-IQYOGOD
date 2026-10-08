@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="440" viewBox="0 0 860 440" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="860" height="440" fill="#ffffff"/>
+  <text x="430" y="24" text-anchor="middle" font-size="15" font-weight="bold">Датчик «ГРУНТ-М1»: монтаж в скважину над коллектором</text>
+  <!-- грунт -->
+  <rect x="60" y="70" width="500" height="330" fill="#efebe3"/>
+  <!-- дорога -->
+  <rect x="60" y="70" width="500" height="26" fill="#616161"/>
+  <text x="310" y="88" text-anchor="middle" fill="#fff">дорожное полотно</text>
+  <!-- скважина -->
+  <rect x="296" y="96" width="28" height="180" fill="#cfd8dc" stroke="#455a64"/>
+  <!-- датчик -->
+  <rect x="298" y="240" width="24" height="34" rx="4" fill="#ffca28" stroke="#ef6c00" stroke-width="2"/>
+  <line x1="310" y1="240" x2="310" y2="222" stroke="#455a64" stroke-width="3"/>
+  <text x="310" y="290" text-anchor="middle">датчик на анкере</text>
+  <!-- коллектор -->
+  <circle cx="310" cy="350" r="42" fill="#90a4ae" stroke="#37474f" stroke-width="3"/>
+  <circle cx="310" cy="350" r="28" fill="#4fc3f7"/>
+  <text x="310" y="412" text-anchor="middle">коллектор (участок 1962 г.)</text>
+  <!-- зона вымывания -->
+  <ellipse cx="340" cy="310" rx="40" ry="18" fill="#8d6e63" opacity="0.55"/>
+  <text x="420" y="310">зона вымывания грунта</text>
+  <!-- радиоканал -->
+  <path d="M322 250 q80 -70 180 -90" stroke="#0d47a1" stroke-dasharray="5 4" fill="none"/>
+  <rect x="590" y="120" width="220" height="130" rx="10" fill="#e3f2fd" stroke="#0d47a1" stroke-width="2"/>
+  <text x="700" y="148" text-anchor="middle" font-weight="bold">Сервер мониторинга</text>
+  <text x="700" y="172" text-anchor="middle">пакет 46 байт раз в 6 часов</text>
+  <text x="700" y="190" text-anchor="middle">тренд наклона за 14 суток</text>
+  <text x="700" y="208" text-anchor="middle">порог 0,08°/неделя</text>
+  <text x="700" y="226" text-anchor="middle">заявка диспетчеру</text>
+  <text x="430" y="360" text-anchor="middle">скважина Ду80, глубина 1,5–3 м · монтаж 40 минут · без вскрытия покрытия</text>
+  <text x="430" y="382" text-anchor="middle">разрешение 0,02° · батарея 5 лет · масса 210 г</text>
+</svg>

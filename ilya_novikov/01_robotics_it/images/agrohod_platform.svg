@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="440" viewBox="0 0 840 440" font-family="DejaVu Sans, Arial" font-size="12">
+  <rect width="840" height="440" fill="#ffffff"/>
+  <text x="420" y="24" text-anchor="middle" font-size="15" font-weight="bold">АГРОХОД-2: платформа А-1 (габаритный чертёж, вид сбоку и сверху)</text>
+  <!-- бок -->
+  <rect x="120" y="150" width="330" height="90" rx="10" fill="#e8f5e9" stroke="#1b5e20" stroke-width="2"/>
+  <text x="285" y="180" text-anchor="middle">бак 200 л · ДВС 12 л.с. · генератор 48 В</text>
+  <text x="285" y="200" text-anchor="middle">Jetson Orin NX + STM32, CAN 500 кбит/с</text>
+  <rect x="450" y="150" width="60" height="90" rx="8" fill="#c8e6c9" stroke="#1b5e20"/>
+  <text x="480" y="200" text-anchor="middle">вентилятор 500 мм</text>
+  <!-- гусеницы -->
+  <rect x="110" y="250" width="350" height="34" rx="17" fill="#37474f"/>
+  <circle cx="150" cy="267" r="12" fill="#90a4ae"/><circle cx="285" cy="267" r="12" fill="#90a4ae"/><circle cx="420" cy="267" r="12" fill="#90a4ae"/>
+  <text x="285" y="305" text-anchor="middle">гусеница 380 мм · давление на грунт 0,25 кг/см²</text>
+  <!-- штанга и форсунки -->
+  <line x1="470" y1="150" x2="470" y2="110" stroke="#1b5e20" stroke-width="3"/>
+  <g fill="#ef6c00">
+    <circle cx="470" cy="104" r="4"/><circle cx="470" cy="120" r="4"/><circle cx="470" cy="136" r="4"/>
+  </g>
+  <text x="560" y="110">8 форсунок, посекционное ШИМ</text>
+  <!-- лидар и камера -->
+  <rect x="150" y="120" width="40" height="24" rx="4" fill="#fff59d" stroke="#f57f17"/>
+  <text x="90" y="132" text-anchor="middle">лидар</text>
+  <rect x="240" y="120" width="40" height="24" rx="4" fill="#bbdefb" stroke="#0d47a1"/>
+  <text x="260" y="112" text-anchor="middle">камера крон</text>
+  <!-- размеры -->
+  <line x1="120" y1="330" x2="470" y2="330" stroke="#616161"/>
+  <text x="295" y="348" text-anchor="middle">1 480 мм</text>
+  <!-- сверху -->
+  <rect x="580" y="90" width="180" height="230" fill="#f1f8e9" stroke="#1b5e20"/>
+  <rect x="640" y="90" width="60" height="230" fill="#dcedc8"/>
+  <text x="670" y="80" text-anchor="middle">вид сверху: ряд 3,2 м, отклонение ±27 мм СКЗ</text>
+  <g fill="#33691e">
+    <circle cx="610" cy="120" r="6"/><circle cx="730" cy="120" r="6"/>
+    <circle cx="610" cy="200" r="6"/><circle cx="730" cy="200" r="6"/>
+    <circle cx="610" cy="280" r="6"/><circle cx="730" cy="280" r="6"/>
+  </g>
+  <rect x="655" y="150" width="30" height="110" fill="#37474f"/>
+  <text x="420" y="420" text-anchor="middle" fill="#555">Масса 460 кг · клиренс 210 мм · рабочая скорость 3,5 км/ч · радиус разворота 2,1 м.</text>
+</svg>
