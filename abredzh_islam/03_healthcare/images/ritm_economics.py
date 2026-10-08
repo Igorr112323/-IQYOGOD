@@ -11,7 +11,7 @@ import random
 random.seed(20261001)
 
 N_SCEN = 3000
-START_COST = 4_200_000        # руб.: серия 60 киосков, ПО, пилоты
+START_COST = 4_200_000        # руб.: серия 60 киосков, ПО, развёртывание
 
 revenues = []
 profits = []

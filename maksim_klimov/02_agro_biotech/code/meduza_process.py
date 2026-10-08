@@ -32,7 +32,7 @@ def hydrolysis_ready(batch: Batch) -> bool:
 
 
 def concentrate_volume(batch: Batch, yield_l_per_t: float = 114.0) -> float:
-    """Выход концентрата, л: пилотная норма 114 л/т биомассы."""
+    """Выход концентрата, л: расчётная норма 114 л/т биомассы."""
     return batch.biomass_kg / 1000.0 * yield_l_per_t
 
 

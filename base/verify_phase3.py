@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-# Верификация всех 25 заявок (фазы 3–6): комплектность, каноны, самооценка,
-# окупаемость < 2 лет, >= 5 источников в п. 2.
+# Верификация всех 25 заявок: единый файл ЗАЯВКА.md, каноны, самооценка (ИТОГО=23),
+# окупаемость < 2 лет, >= 5 источников в п. 2, комплект images/ и code/,
+# отсутствие удалённых файлов (application.md, README.md, docs/).
 import os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -14,26 +15,30 @@ errors, warnings = [], []
 for a in AUTHORS:
     for n in NOMS:
         d = os.path.join(ROOT, a, n)
-        app = os.path.join(d, "application.md")
+        app = os.path.join(d, "ЗАЯВКА.md")
         if not os.path.isfile(app):
-            errors.append(f"{a}/{n}: нет application.md"); continue
+            errors.append(f"{a}/{n}: нет ЗАЯВКА.md"); continue
         text = open(app, encoding="utf-8").read()
         # каноны — во всех 25
         if "Богус Азамат Эдуардович" not in text:
             errors.append(f"{a}/{n}: нет консультанта Богуса")
         if "Шершнев Игорь Андреевич" not in text:
             errors.append(f"{a}/{n}: нет члена группы Шершнева")
-        # самооценка — во всех 25
-        m = re.search(r"\*\*ИТОГО\*\*\s*\|\s*\*\*(\d+)\*\*", text)
-        if not m or m.group(1) != "23":
-            errors.append(f"{a}/{n}: ИТОГО != 23 ({m.group(1) if m else 'не найдено'})")
+        # самооценка — итог 23 (текстовый формат: «ИТОГО: 23 балла из 25»)
+        tot = re.findall(r"ИТОГО[:\s]*\**\s*(\d+)\s*балла", text)
+        if not tot or any(t != "23" for t in tot):
+            errors.append(f"{a}/{n}: ИТОГО != 23 ({tot if tot else 'не найдено'})")
         # не менее 5 источников в п. 2 (между «## 2» и «## 3»)
         sec2 = re.search(r"## 2\..*?(?=## 3\.)", text, re.S)
         urls = re.findall(r"https?://\S+", sec2.group(0)) if sec2 else []
         if len(urls) < 5:
             errors.append(f"{a}/{n}: источников в п. 2 — {len(urls)} (< 5)")
-        if re.search(r"Эффективность внедрения \| 3", text) is None:
+        # 8.4 «Эффективность внедрения» — не выше 3
+        if not re.search(r"Эффективность внедрения[^\n]*?[:—]\s*\**\s*3\b", text):
             errors.append(f"{a}/{n}: 8.4 != 3")
+        # в заявке не должно остаться таблиц (строк, начинающихся с «|»)
+        if re.search(r"^\|", text, re.M):
+            errors.append(f"{a}/{n}: в ЗАЯВКА.md остались таблицы")
         # окупаемость < 2 лет (пороговые фразы «до 24 мес» / «< 24 мес» игнорируем)
         pay_text = re.sub(r"[<≤]\s*24\s*мес", "", text)
         pay_text = re.sub(r"до 24 мес", "", pay_text)
@@ -50,11 +55,11 @@ for a in AUTHORS:
             errors.append(f"{a}/{n}: окупаемость {max(pay_s)} сезона > 2")
         if not found:
             warnings.append(f"{a}/{n}: «окупаемость …» с числом не найдена в заявке")
+        # удалённые файлы не должны существовать
+        for gone in ["application.md", "README.md", "docs"]:
+            if os.path.exists(os.path.join(d, gone)):
+                errors.append(f"{a}/{n}: остался удалённый объект {gone}")
         # комплект файлов
-        need = ["README.md", "docs/протокол_испытаний.md"]
-        for f in need:
-            if not os.path.isfile(os.path.join(d, f)):
-                errors.append(f"{a}/{n}: нет {f}")
         imgs = [f for f in os.listdir(os.path.join(d, "images"))
                 if f.endswith((".mmd", ".py", ".svg"))]
         exts = {os.path.splitext(f)[1] for f in imgs}
@@ -73,4 +78,4 @@ if errors:
     for e in errors: print("  ✗", e)
     sys.exit(1)
 print("Все проверки пройдены во всех 25 заявках: ИТОГО=23, 8.4=3, по >= 5 источников в п. 2, "
-      "Богус и Шершнев, окупаемость < 2 лет, комплекты целы.")
+      "Богус и Шершнев, окупаемость < 2 лет, без таблиц, комплекты ЗАЯВКА.md + images + code целы.")
